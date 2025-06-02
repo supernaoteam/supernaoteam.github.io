@@ -859,18 +859,25 @@
 
     const smoothUpdate = () => {
         if (!isNaN(video.duration)) {
-            // Use faster easing on mobile
+            // Use a lower easing factor for smoother animation on mobile
             const isMobile = window.innerWidth <= 768;
-            const easingFactor = isMobile ? 0.5 : 0.3;
+            const easingFactor = isMobile ? 0.2 : 0.3; // Reduced easing factor for mobile
             video.currentTime += (targetTime - video.currentTime) * easingFactor;
         }
         requestAnimationFrame(smoothUpdate);
     };
 
-    window.addEventListener('scroll', updateTargetTime);
-    document.addEventListener('touchmove', (e) => {
-        updateTargetTime();
-    }, { passive: true });
+    let lastUpdate = 0;
+    const throttleUpdateTargetTime = () => {
+        const now = Date.now();
+        if (now - lastUpdate > 50) { // Throttle updates to every 50ms
+            updateTargetTime();
+            lastUpdate = now;
+        }
+    };
+
+    window.addEventListener('scroll', throttleUpdateTargetTime, { passive: true });
+    document.addEventListener('touchmove', throttleUpdateTargetTime, { passive: true });
 
     video.addEventListener('loadedmetadata', () => {
         video.pause();             // Prevent autoplay
