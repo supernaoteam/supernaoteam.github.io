@@ -1,4 +1,0 @@
-# HTTrack Website Copier Cookie File
-# This file format is compatible with Netscape cookies
-supernao.zorn.it	TRUE	/	FALSE	1999999999	82bfddd5b33a5855e6f7b607d067a5ac	gf1v0qc73us4eupclc56uim63c
-
