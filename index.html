@@ -2,11 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add this line -->
     <title>SuperNAO - Home</title>
     <link rel="icon" type="image/x-icon" href="iconesito/favicon.png" />
     <style>
         /* General styles */
         
+        html, body {
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -15,7 +20,7 @@
         }
         @media (max-width: 768px) {
             body {
-                background: linear-gradient(to bottom, #ff6600, white 5%, #ff6600 100%);
+                background: linear-gradient(to bottom, white 55%, #ff6600 100%);
             }
         }
         h1, h2, h3 {
@@ -63,17 +68,24 @@
             bottom: 10%;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 2.5rem;
-            color: white;
             cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            padding: 10px;
+            transition: all 0.3s ease;
             animation: bounce 1.5s infinite;
+        }
+        .hero-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-50%) scale(1.1);
         }
         @keyframes bounce {
             0%, 100% {
-                transform: translate(-50%, 0);
+                transform: translateX(-50%) translateY(0);
             }
             50% {
-                transform: translate(-50%, 10px);
+                transform: translateX(-50%) translateY(10px);
             }
         }
         @media (max-width: 768px) {
@@ -84,9 +96,10 @@
             .hero video {
                 height: 100vh; /* Video fills the viewport */
                 object-fit: cover;
+                object-position: 70% center; /* This will show more of the right side */
             }
             .hero-text {
-                top: 50%; /* Center vertically */
+                top: 20%; /* Center vertically */
                 font-size: 1.2rem; /* Adjust text size */
             }
             .hero-text h2 {
@@ -133,15 +146,18 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         @media (max-width: 768px) {
-            .combined-section .content {
-                flex-direction: column; /* Stack vertically on mobile */
+            .combined-section {
+                padding: 20px; /* Reduce padding on mobile */
             }
+            
+            .combined-section .content {
+                flex-direction: column !important; /* Force column layout regardless of odd/even */
+            }
+            
             .combined-section .text,
             .combined-section .image {
-                width: 100%; /* Full width for both text and images */
-            }
-            .combined-section .image {
-                margin-top: 20px; /* Add spacing between text and image */
+                width: 100%;
+                padding: 15px;
             }
         }
 
@@ -153,49 +169,41 @@
         }
         .team .visible-members,
         .team .hidden-members {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .team .hidden-members {
-            display: none;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .team .member {
             position: relative;
-            width: 45%; /* Default for desktop */
-            height: 250px;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        .team .member .background {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            background-color: var(--NAO);
+            max-width: 180px;
+            margin: 0 auto;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
             border-radius: 15px;
-            z-index: -1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .team img {
             width: 100%;
-            height: 70%;
-            object-fit: contain; /* Changed from cover to contain */
-            border-radius: 15px 15px 0 0;
+            height: auto;
+            border-radius: 12px;
         }
         .team p {
-            margin: 0;
-            padding: 10px;
-            background: var(--NAO);
-            border-radius: 0 0 15px 15px;
-            font-weight: bold;
+            margin: 8px 0 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #ff6600;
+            position: center;
         }
         .team button {
             margin-top: 20px;
             padding: 10px 20px;
             background-color: var(--NAO);
-            color: var(--NAO);
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -206,10 +214,25 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
         @media (max-width: 768px) {
-            /* Team Section */
+            .team {
+                padding: 20px 10px;
+            }
+            
+            .team .visible-members,
+            .team .hidden-members {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 10px;
+            }
+            
             .team .member {
-                width: 48%; /* Two columns for team members */
-                margin-bottom: 20px; /* Add spacing between rows */
+                max-width: 140px;
+                padding: 6px;
+            }
+            
+            .team p {
+                font-size: 0.8rem;
+                margin-top: 5px;
             }
         }
 
@@ -227,7 +250,7 @@
             width: 50%;
             padding: 30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background: white;
+            background: rgb(255, 255, 255);
             border-radius: 10px;
         }
         .final-section iframe {
@@ -236,18 +259,50 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+        .final-section .learn-more {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: var(--NAO);
+            color: rgb(255, 123, 0);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .final-section .learn-more:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
         @media (max-width: 768px) {
             /* Final Section */
             .final-section {
                 flex-direction: column; /* Stack content vertically */
                 padding: 20px; /* Reduce padding */
+                margin-bottom: 40px;
             }
             .final-section .text,
             .final-section iframe {
                 width: 100%; /* Full width for content */
             }
             .final-section iframe {
+                height: 200px;
                 margin-top: 20px; /* Add spacing between text and video */
+            }
+            .final-section h1 {
+                font-size: 1.5rem;
+            }
+            .final-section h3 {
+                font-size: 1.2rem;
+            }
+            .final-section .learn-more {
+                display: block;
+                text-align: center;
+                margin: 20px auto;
+                width: fit-content;
             }
         }
 
@@ -411,6 +466,231 @@
                 opacity: 0;
             }
         }
+
+        /* Floating Icon */
+        .floating-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 140px; /* Doubled size */
+            height: 140px; /* Doubled size */
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .floating-icon:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add a stronger shadow */
+        }
+
+        .floating-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Dialog Box */
+        .dialog-box {
+            position: fixed;
+            bottom: 100px;
+            left: 180px; /* Positioned to the right of the larger icon */
+            transform: translateY(0);
+            width: 500px; /* Expanded horizontally */
+            max-width: 90%;
+            background-color: rgb(255, 94, 0);
+            color: black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 20px; /* Rounded corners for a speech bubble look */
+            padding: 20px;
+            display: none;
+            z-index: 1001;
+        }
+
+        .dialog-content {
+            position: relative;
+            text-align: left; /* Align text to the left */
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            padding-right: 40px; /* Add space for the close button */
+        }
+
+        .dialog-content p {
+            margin: 0;
+            padding: 0;
+            color: rgb(255, 255, 255); /* Ensure text is readable */
+        }
+
+        /* Close Button */
+        .close-dialog {
+            position: absolute;
+            bottom: 10px; /* Move to the bottom */
+            right: 10px; /* Align to the right */
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            cursor: pointer;            border-radius: 50%; /* Circular button */
+            padding: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .close-dialog:hover {
+            background: rgba(255, 255, 255, 0.4); /* Slightly brighter on hover */
+            transform: scale(1.2); /* Enlarge on hover */
+        }
+
+        @media (max-width: 768px) {
+            /* Floating Icon */
+            .floating-icon {
+                width: 100px; /* Smaller size for mobile */
+                height: 100px; /* Smaller size for mobile */
+                bottom: 15px; /* Adjust position */
+                left: 15px; /* Adjust position */
+            }
+
+            .floating-icon:hover {
+                transform: scale(1.05); /* Slightly smaller hover effect */
+            }
+
+            /* Dialog Box */
+            .dialog-box {
+                bottom: 130px; /* Adjust position above the smaller icon */
+                left: 15px; /* Align with the icon */
+                width: 90%; /* Use most of the screen width */
+                max-width: 400px; /* Limit the width */
+                padding: 15px; /* Reduce padding */
+                border-radius: 15px; /* Slightly smaller rounded corners */
+            }
+
+            .dialog-content {
+                font-size: 0.9rem; /* Slightly smaller font size */
+                line-height: 1.4; /* Adjust line height */
+                padding-right: 30px; /* Adjust padding for the close button */
+            }
+
+            .close-dialog {
+                bottom: 8px; /* Adjust position */
+                right: 8px; /* Adjust position */
+                font-size: 1rem; /* Slightly smaller close button */
+                padding: 4px; /* Adjust padding */
+            }
+        }
+
+        @media (max-width: 768px) {
+    /* Adjust the project grid for single-column layout */
+    .project-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px; /* Reduce gap between cards */
+        padding: 10px;
+    }
+
+    /* Adjust the project card for mobile */
+    .project-card {
+        max-width: 100%; /* Ensure it fits within the screen */
+        padding: 10px; /* Add padding for space between borders */
+        border-radius: 10px; /* Slightly smaller rounded corners */
+    }
+
+    /* Adjust the project content for mobile */
+    .project-content {
+        padding: 15px; /* Add space between text and borders */
+    }
+
+    .project-title {
+        font-size: 1.2rem; /* Slightly smaller title font size */
+        margin-bottom: 8px;
+    }
+
+    .project-description {
+        font-size: 0.9rem; /* Slightly smaller description font size */
+        line-height: 1.4; /* Adjust line height for readability */
+        margin-bottom: 15px;
+    }
+
+    .project-link {
+        width: 100%; /* Make the link button full width */
+        text-align: center;
+        padding: 10px 0;
+        font-size: 1rem;
+    }
+
+    /* Adjust navbar for mobile */
+    .navbar {
+        width: 240px;
+        height: 70px;
+        top: 8%;
+    }
+
+    .navbar img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .navbar img.middle {
+        width: 55px;
+        height: 55px;
+    }
+
+    .navbar a .hover-rectangle {
+        display: none; /* Hide hover rectangles on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for very small devices */
+    .projects-container {
+        margin-top: 100px;
+        padding: 10px;
+    }
+
+    .project-card {
+        border-radius: 10px; /* Smaller rounded corners */
+    }
+
+    .project-image {
+        height: 160px; /* Adjust image height */
+    }
+
+    .project-content {
+        padding: 12px; /* Add space between text and borders */
+    }
+
+    .project-title {
+        font-size: 1.1rem; /* Smaller title font size */
+    }
+
+    .project-description {
+        font-size: 0.85rem; /* Smaller description font size */
+        line-height: 1.4;
+    }
+
+    .project-link {
+        font-size: 0.9rem; /* Smaller button font size */
+    }
+
+    .navbar {
+        width: 200px;
+        height: 60px;
+    }
+
+    .navbar img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar img.middle {
+        width: 50px;
+        height: 50px;
+    }
+}
     </style>
 </head>
 <body>
@@ -426,7 +706,11 @@
             <h1>SuperNAO</h1>
             <h2>La robotica al servizio delle persone</h2>
         </div>
-        <div class="hero-arrow" onclick="scrollToContent()">&#x25BC;</div>
+        <div class="hero-arrow" onclick="scrollToContent()">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
     </div>
     <script>
         function scrollToContent() {
@@ -438,7 +722,7 @@
     <div class="navbar">
         <a href="progetti.html">
             <img src="iconesito/icon-progetti.png" alt="Logo 1">
-            <div class="hover-rectangle">Projects</div>
+            <div class="hover-rectangle">Progetti</div>
         </a>
         <a href="index.html">
             <img src="iconesito/favicon.png" class="middle" alt="Logo 2">
@@ -471,7 +755,7 @@
                 <h2>Perchè proprio noi?</h2>
                 <p>La nostra forza in SuperNAO è la passione e la determinazione. Siamo un gruppo di studenti motivati, curiosi e pronti a affrontare ogni sfida con entusiasmo. La robotica umanoide ci ha insegnato che l’innovazione non riguarda solo la tecnologia, ma anche la collaborazione. Ogni successo ci spinge a esplorare nuove possibilità, convinti che il nostro impegno possa fare la differenza nelle comunità in cui operiamo. Questo ci motiva a cercare nuove opportunità e lasciare un segno positivo nel mondo.</p>
             </div>
-            <img class="image" src="/SuperNAO 2023/compressed/IMG_20230522_093506.webp" alt="Section 3 Image">
+            <img class="image" src="fotoannivari/2022/_MG_6668.webp" alt="Section 3 Image">
         </div>
     </div>
 
@@ -480,49 +764,36 @@
         <h2>Our Team</h2>
         <div class="visible-members">
             <div class="member">
-                <div class="background"></div>
                 <img src="/fototeamwebp/Gabriele_V.webp" alt="Gabriele Delle Site">
                 <p>Gabriele Delle Site</p>
             </div>
             <div class="member">
-                <div class="background"></div>
                 <img src="/fototeamwebp/Filippo_Labate_V.webp" alt="Filippo Labate">
                 <p>Filippo Labate</p>
             </div>
             <div class="member">
-                <div class="background"></div>
                 <img src="/fototeamwebp/Ching_Hoi_V.webp" alt="Ching Hoi Wong">
                 <p>Ching Hoi Wong</p>
             </div>
             <div class="member">
-                <div class="background"></div>
                 <img src="/fototeamwebp/Niccolo_Lucidi_V.webp" alt="Niccolò Lucidi">
                 <p>Niccolò Lucidi</p>
             </div>
         </div>
-        <div class="hidden-members">
+        <div class="hidden-members" style="display: none;">
             <div class="member">
-                <div class="background"></div>
                 <img src="/fototeamwebp/Virginia_D_Andrea_V.webp" alt="Virginia D'Andrea">
                 <p>Virginia D'Andrea</p>
             </div>
             <div class="member">
-                <div class="background"></div>
-                <img src="/fototeamwebp/Gabriele_Russo_V.webp" alt="Gabriele Russo">
-                <p>Gabriele Russo</p>
-            </div>
-            <div class="member">
-                <div class="background"></div>
                 <img src="/fototeamwebp/Marco_Zorn_V.webp" alt="Marco Zorn">
                 <p>Marco Zorn</p>
             </div>
             <div class="member">
-                <div class="background"></div>
                 <img src="/fototeamwebp/Leonardo_Vellella_V.webp" alt="Leonardo Vellella">
                 <p>Leonardo Vellella</p>
             </div>
             <div class="member">
-                <div class="background"></div>
                 <img src="/fototeamwebp/SuperNAO_V.webp" alt="SuperNAO">
                 <p>SuperNAO</p>
             </div>
@@ -534,13 +805,18 @@
             const hiddenMembers = document.querySelector('.team .hidden-members');
             const button = document.querySelector('.team button');
             if (hiddenMembers.style.display === 'none' || hiddenMembers.style.display === '') {
-                hiddenMembers.style.display = 'flex';
+                hiddenMembers.style.display = 'grid';
                 button.textContent = 'Mostra meno';
             } else {
                 hiddenMembers.style.display = 'none';
                 button.textContent = 'Scopri gli altri';
             }
         }
+
+        // Ensure hidden members are hidden on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.team .hidden-members').style.display = 'none';
+        });
     </script>
 
     <!-- Final Section -->
@@ -549,8 +825,20 @@
             <h1>Il nostro ultimo progetto</h1>
             <h3>Dove la Robotica incontra lo Sport: SuperNAO Trainer</h3>
             <p>Il nostro team ha lavorato duramente per sviluppare un sistema avanzato per trasformare il nostro umanoide, NAO, in un super-allenatore per potenziare, migliorare e diversificare l'attività sportiva. In questo video, vi mostriamo il nostro progetto per integrare la robotica umanoide all'interno del settore dello sport.</p>
+            <a href="progetti.html" class="learn-more">Scopri di più</a>
         </div>
         <iframe src="https://www.youtube.com/embed/ep9E2Q-0SEo" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- Circular Icon and Dialog -->
+    <div class="floating-icon">
+        <img src="NAO-icon.jpg" alt="Icon" onclick="toggleDialog()" />
+    </div>
+    <div class="dialog-box" id="dialog-box">
+        <div class="dialog-content">
+            <span class="close-dialog" onclick="toggleDialog()">×</span>
+            <p>Ciao! Sono NAO, un robot umanoide con intelligenza artificiale, progettato per interagire e imparare. Il mio scopo è ispirare gli studenti e rendere l'apprendimento coinvolgente. Con capacità di riconoscimento vocale e di movimento, collaboro in modo naturale adattandomi alle esigenze di chi mi circonda. Ogni giorno esploro nuove sfide, contribuendo a creare un futuro dove tecnologia e umanità migliorano la vita delle persone. Insieme, possiamo trasformare idee in realtà con curiosità e creatività!</p>
+        </div>
     </div>
 
     <script>
@@ -559,7 +847,10 @@
 
     const updateTargetTime = () => {
         const fullScroll = document.body.scrollHeight - window.innerHeight;
-        const effectiveMaxScroll = fullScroll * 0.75; // Change to 0.5 if you want it even faster
+        // Check if we're on mobile
+        const isMobile = window.innerWidth <= 768;
+        // Use different scroll fraction for mobile
+        const effectiveMaxScroll = fullScroll * (isMobile ? 0.5 : 0.75);
         const clampedScroll = Math.min(window.scrollY, effectiveMaxScroll);
         const scrollFraction = clampedScroll / effectiveMaxScroll;
 
@@ -568,21 +859,33 @@
 
     const smoothUpdate = () => {
         if (!isNaN(video.duration)) {
-            // 0.1 is smooth, you could try 0.2 or 0.3 for faster easing
-            video.currentTime += (targetTime - video.currentTime) * 0.3;
+            // Use faster easing on mobile
+            const isMobile = window.innerWidth <= 768;
+            const easingFactor = isMobile ? 0.5 : 0.3;
+            video.currentTime += (targetTime - video.currentTime) * easingFactor;
         }
         requestAnimationFrame(smoothUpdate);
     };
 
     window.addEventListener('scroll', updateTargetTime);
+    document.addEventListener('touchmove', (e) => {
+        updateTargetTime();
+    }, { passive: true });
 
     video.addEventListener('loadedmetadata', () => {
         video.pause();             // Prevent autoplay
         updateTargetTime();        // Initialize
         requestAnimationFrame(smoothUpdate); // Start animation loop
     });
-</script>
 
-
+    function toggleDialog() {
+        const dialogBox = document.getElementById('dialog-box');
+        if (dialogBox.style.display === 'none' || dialogBox.style.display === '') {
+            dialogBox.style.display = 'block';
+        } else {
+            dialogBox.style.display = 'none';
+        }
+    }
+    </script>
 </body>
 </html>

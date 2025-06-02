@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperNAO - Progetti</title>
+    <link rel="icon" type="image/x-icon" href="iconesito/favicon.png" />
+    <style>
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 282px;
+            height: 84px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 42px;
+            box-shadow: 0 5.66px 11.31px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            animation: navbarFadeIn 1s ease-out forwards;
+        }
+
+        @keyframes navbarFadeIn {
+            to {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .navbar img {
+            width: 56.57px;
+            height: 56.57px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .navbar img.middle {
+            width: 70.71px;
+            height: 70.71px;
+        }
+
+        .navbar img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Hover rectangle styles */
+        .navbar a {
+            position: relative;
+        }
+
+        .navbar a .hover-rectangle {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            width: 100px;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .navbar a:hover .hover-rectangle {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* General styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 55%, hsla(24, 100%, 50%, 1) 100%);
+            min-height: 100vh;
+        }
+
+        /* Projects section styles */
+        .projects-container {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FF4500;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Show 2 columns by default */
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px; /* Reduced from 20px to show more of the image */
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0; /* Match top radius with card, keep bottom square */
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            color: #FF4500;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FF4500;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #FF6600;
+        }
+
+        /* Media queries */
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 25px;
+                padding: 10px;
+            }
+
+            .projects-container {
+                margin-top: 120px;
+                padding: 15px;
+            }
+
+            .project-card {
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .project-image {
+                height: 180px;
+            }
+
+            .project-content {
+                padding: 15px;
+            }
+
+            .project-title {
+                font-size: 1.3rem;
+                margin-bottom: 8px;
+            }
+
+            .project-description {
+                font-size: 0.95rem;
+                margin-bottom: 15px;
+            }
+
+            .project-link {
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+                font-size: 1rem;
+            }
+
+            /* Adjust navbar for mobile */
+            .navbar {
+                width: 240px;
+                height: 70px;
+                top: 8%;
+            }
+
+            .navbar img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .navbar img.middle {
+                width: 55px;
+                height: 55px;
+            }
+
+            .navbar a .hover-rectangle {
+                display: none; /* Hide hover rectangles on mobile */
+            }
+        }
+
+        /* Additional breakpoint for very small devices */
+        @media (max-width: 350px) {
+            .projects-container {
+                margin-top: 100px;
+                padding: 10px;
+            }
+
+            .project-card {
+                border-radius: 15px;
+            }
+
+            .project-image {
+                height: 160px;
+            }
+
+            .project-content {
+                padding: 12px;
+            }
+
+            .project-title {
+                font-size: 1.2rem;
+            }
+
+            .project-description {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .navbar {
+                width: 200px;
+                height: 60px;
+            }
+
+            .navbar img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .navbar img.middle {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <a href="progetti.html">
+            <img src="iconesito/icon-progetti.png" alt="Logo 1">
+            <div class="hover-rectangle">Progetti</div>
+        </a>
+        <a href="index.html">
+            <img src="iconesito/favicon.png" class="middle" alt="Logo 2">
+            <div class="hover-rectangle">Home</div>
+        </a>
+        <a href="team.html">
+            <img src="iconesito/icon-team.png" alt="Logo 3">
+            <div class="hover-rectangle">Team</div>
+        </a>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="projects-container">
+        <h1>Progetti</h1>
+        <div class="project-grid">
+            
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <img src="/grafiche progetti/IMG_3006.webp" alt="SuperNAO Trainer" class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">SuperNAO Trainer</h2>
+                    <p class="project-description">Un sistema avanzato che trasforma NAO in un personal trainer robotico per migliorare l'attività sportiva.</p>
+                    <a href="#" class="project-link">Scopri di più</a>
+                </div>
+            </div>
+            
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <img src="/grafiche progetti/IMG_2308.webp" alt="Nao Ecology" class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">NAO Ecology</h2>
+                    <p class="project-description">Un sistema avanzato che trasforma NAO in un assistente per la sostenibilità ambientale, aiutando a monitorare e migliorare l'ecosistema.</p>
+                    <a href="#" class="project-link">Scopri di più</a>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <img src="/grafiche progetti/IMG_2309.webp" alt="NAO Retail" class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">NAO Retail</h2>
+                    <p class="project-description">Un sistema avanzato che trasforma NAO in un assistente per la vendita al dettaglio, migliorando l'esperienza del cliente.</p>
+                    <a href="#" class="project-link">Scopri di più</a>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="project-card">
+                <img src="/grafiche progetti/IMG_2348.webp" alt="NAO a Tavola" class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">NAO a Tavola</h2>
+                    <p class="project-description">Un progetto che utilizza NAO per educare i bambini a una corretta alimentazione attraverso il gioco.</p>
+                    <a href="#" class="project-link">Scopri di più</a>
+                </div>
+            </div>
+
+            
+
+            <!-- Add more project cards as needed -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperNAO - Team</title>
+    <link rel="icon" type="image/x-icon" href="iconesito/favicon.png" />
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 25%, hsla(24, 100%, 50%, 1) 100%);
+            min-height: 100vh;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 282px;
+            height: 84px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 42px;
+            box-shadow: 0 5.66px 11.31px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            animation: navbarFadeIn 1s ease-out forwards;
+        }
+
+        @keyframes navbarFadeIn {
+            to {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .navbar img {
+            width: 56.57px;
+            height: 56.57px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .navbar img.middle {
+            width: 70.71px;
+            height: 70.71px;
+        }
+
+        .navbar img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Hover rectangle styles */
+        .navbar a {
+            position: relative;
+        }
+
+        .navbar a .hover-rectangle {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            width: 100px;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .navbar a:hover .hover-rectangle {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Enhanced team section styles */
+        .team-section {
+            margin-top: 120px;
+            background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-scroll {
+            display: flex;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            margin: 2rem;
+            border-radius: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .team-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-info {
+            width: 40%;
+            padding: 3rem;
+            opacity: 0;
+            transition: all 0.5s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .team-info h2 {
+            color: #FF4500;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-info p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .team-strip {
+            width: 60%;
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            transform: translateX(0);
+            transition: transform 0.5s;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid #FF4500;
+        }
+
+        .team-member h3 {
+            color: #FF4500;
+            margin: 0.5rem 0;
+        }
+
+        .team-member p {
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        /* Team header styles */
+        .team-header {
+            text-align: center;
+            padding: 120px 20px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-bottom: 2px solid rgba(255, 69, 0, 0.2);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+
+        .team-header h1 {
+            color: #FF4500;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-header p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .team-scroll {
+                flex-direction: column;
+            }
+            .team-info, .team-strip {
+                width: 100%;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .team-member img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .team-header h1 {
+                font-size: 2rem;
+            }
+
+            .team-header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <a href="progetti.html">
+            <img src="iconesito/icon-progetti.png" alt="Logo 1">
+            <div class="hover-rectangle">Progetti</div>
+        </a>
+        <a href="index.html">
+            <img src="iconesito/favicon.png" class="middle" alt="Logo 2">
+            <div class="hover-rectangle">Home</div>
+        </a>
+        <a href="team.html">
+            <img src="iconesito/icon-team.png" alt="Logo 3">
+            <div class="hover-rectangle">Team</div>
+        </a>
+    </div>
+
+    <!-- Team Header Section -->
+    <div class="team-header">
+        <h1>Team</h1>
+        <p class="team-intro">Il nostro team è composto da studenti appassionati e dedicati, 
+        ciascuno con competenze uniche che contribuiscono al successo di SuperNAO. 
+        Siamo un gruppo eterogeneo di sviluppatori, designer e specialisti dei social media,
+        uniti dalla passione per la tecnologia e l'innovazione.
+        </p>
+    </div>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <!-- Initial full team view -->
+        <div class="team-grid" id="teamGrid">
+            <!-- Team members will be populated manually -->
+            <div class="team-member">
+                <img src="fototeamwebp/Gabriele_V.webp" alt="Gabriele Delle Site">
+                <h3>Gabriele Delle Site</h3>
+                <p>Lead developer</p>
+            </div>
+            <div class="team-member">
+                <img src="fototeamwebp/Leonardo_Vellella_V.webp" alt="Leonardo Vellella">
+                <h3>Leonardo Vellella</h3>
+                <p>Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="fototeamwebp/Marco_Zorn_V.webp" alt="Marco Zorn">
+                <h3>Marco Zorn</h3>
+                <p>Web Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="fototeamwebp/Niccolo_Lucidi_V.webp" alt="Niccolò Lucidi">
+                <h3>Niccolò Lucidi</h3>
+                <p>Grafico Web</p>
+            </div>
+            <div class="team-member">
+                <img src="fototeamwebp/Filippo_Labate_V.webp" alt="Filippo Labate">
+                <h3>Filippo Labate</h3>
+                <p>Social Media Manager</p>
+            </div>
+            <div class="team-member">
+                <img src="fototeamwebp/Ching_Hoi_V.webp" alt="Ching Hoi Wong">
+                <h3>Ching Hoi Wong</h3>
+                <p>Content Creator</p>
+            </div>
+            <div class="team-member">
+                <img src="fototeamwebp/Virginia_D_Andrea_V.webp" alt="Virginia D'Andrea">
+                <h3>Virginia D'Andrea</h3>
+                <p>Social Media Specialist</p>
+            </div>
+                <div class="team-member">
+                <img src="fototeamwebp/SuperNAO_V.webp" alt="SuperNAO">
+                <h3>SuperNAO</h3>
+                <p>Super robot assistente<p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

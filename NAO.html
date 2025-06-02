@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SuperNAO - Team</title>
+    <link rel="icon" type="image/x-icon" href="iconesito/favicon.png" />
+    <style>
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 282px;
+            height: 84px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 42px;
+            box-shadow: 0 5.66px 11.31px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            animation: navbarFadeIn 1s ease-out forwards;
+        }
+
+        @keyframes navbarFadeIn {
+            to {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .navbar img {
+            width: 56.57px;
+            height: 56.57px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .navbar img.middle {
+            width: 70.71px;
+            height: 70.71px;
+        }
+
+        .navbar img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Hover rectangle styles */
+        .navbar a {
+            position: relative;
+        }
+
+        .navbar a .hover-rectangle {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            width: 100px;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .navbar a:hover .hover-rectangle {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <a href="progetti.html">
+            <img src="iconesito/icon-progetti.png" alt="Logo 1">
+            <div class="hover-rectangle">Progetti</div>
+        </a>
+        <a href="index.html">
+            <img src="iconesito/favicon.png" class="middle" alt="Logo 2">
+            <div class="hover-rectangle">Home</div>
+        </a>
+        <a href="team.html">
+            <img src="iconesito/icon-team.png" alt="Logo 3">
+            <div class="hover-rectangle">Team</div>
+        </a>
+    </div>
+</body>
+</html>
