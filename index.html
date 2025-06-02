@@ -1,143 +1,588 @@
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="description" content="HTTrack is an easy-to-use website mirror utility. It allows you to download a World Wide website from the Internet to a local directory,building recursively all structures, getting html, images, and other files from the server to your computer. Links are rebuiltrelatively so that you can freely browse to the local site (works with any browser). You can mirror several sites together so that you can jump from one toanother. You can, also, update an existing mirror site, or resume an interrupted download. The robot is fully configurable, with an integrated help" />
-	<meta name="keywords" content="httrack, HTTRACK, HTTrack, winhttrack, WINHTTRACK, WinHTTrack, offline browser, web mirror utility, aspirateur web, surf offline, web capture, www mirror utility, browse offline, local  site builder, website mirroring, aspirateur www, internet grabber, capture de site web, internet tool, hors connexion, unix, dos, windows 95, windows 98, solaris, ibm580, AIX 4.0, HTS, HTGet, web aspirator, web aspirateur, libre, GPL, GNU, free software" />
-	<title>Local index - HTTrack Website Copier</title>
-  <!-- Mirror and index made by HTTrack Website Copier/3.49-4 [XR&CO'2014] -->
-	<style type="text/css">
-	<!--
+    <meta charset="UTF-8" />
+    <title>SuperNAO - Home</title>
+    <link rel="icon" type="image/x-icon" href="iconesito/favicon.png" />
+    <style>
+        /* General styles */
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 55%, hsla(24, 100%, 50%, 1) 100%);
+        }
+        @media (max-width: 768px) {
+            body {
+                background: linear-gradient(to bottom, #ff6600, white 5%, #ff6600 100%);
+            }
+        }
+        h1, h2, h3 {
+            color: #FF4500;
+            font-family: 'Poppins', sans-serif;
+        }
+        p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+            font-family: 'Roboto', sans-serif;
+        }
 
-body {
-	margin: 0;  padding: 0;  margin-bottom: 15px;  margin-top: 8px;
-	background: #77b;
-}
-body, td {
-	font: 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-	}
+        /* Hero section styles */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
+        }
+        .hero video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero-text {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .hero-text h2 {
+            color: aliceblue;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .hero-arrow {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translate(-50%, 0);
+            }
+            50% {
+                transform: translate(-50%, 10px);
+            }
+        }
+        @media (max-width: 768px) {
+            /* Hero Section */
+            .hero {
+                height: 100vh; /* Full viewport height */
+            }
+            .hero video {
+                height: 100vh; /* Video fills the viewport */
+                object-fit: cover;
+            }
+            .hero-text {
+                top: 50%; /* Center vertically */
+                font-size: 1.2rem; /* Adjust text size */
+            }
+            .hero-text h2 {
+                font-size: 1.8rem; /* Adjust subheading size */
+            }
+            .hero-arrow {
+                bottom: 5%; /* Adjust arrow position */
+                font-size: 1.8rem; /* Adjust arrow size */
+            }
+        }
 
-#subTitle {
-	background: #000;  color: #fff;  padding: 4px;  font-weight: bold; 
-	}
+        /* Combined section styles */
+        .combined-section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 80px;
+            background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
+        }
+        .combined-section .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .combined-section .content:nth-child(odd) {
+            flex-direction: row;
+        }
+        .combined-section .content:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .combined-section .text {
+            width: 50%;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 10px;
+        }
+        .combined-section .image {
+            width: 45%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 768px) {
+            .combined-section .content {
+                flex-direction: column; /* Stack vertically on mobile */
+            }
+            .combined-section .text,
+            .combined-section .image {
+                width: 100%; /* Full width for both text and images */
+            }
+            .combined-section .image {
+                margin-top: 20px; /* Add spacing between text and image */
+            }
+        }
 
-#siteNavigation a, #siteNavigation .current {
-	font-weight: bold;  color: #448;
-	}
-#siteNavigation a:link    { text-decoration: none; }
-#siteNavigation a:visited { text-decoration: none; }
+        /* Team section styles */
+        .team {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
+        }
+        .team .visible-members,
+        .team .hidden-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .team .hidden-members {
+            display: none;
+        }
+        .team .member {
+            position: relative;
+            width: 45%; /* Default for desktop */
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .team .member .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--NAO);
+            border-radius: 15px;
+            z-index: -1;
+        }
+        .team img {
+            width: 100%;
+            height: 70%;
+            object-fit: contain; /* Changed from cover to contain */
+            border-radius: 15px 15px 0 0;
+        }
+        .team p {
+            margin: 0;
+            padding: 10px;
+            background: var(--NAO);
+            border-radius: 0 0 15px 15px;
+            font-weight: bold;
+        }
+        .team button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: var(--NAO);
+            color: var(--NAO);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .team button:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 768px) {
+            /* Team Section */
+            .team .member {
+                width: 48%; /* Two columns for team members */
+                margin-bottom: 20px; /* Add spacing between rows */
+            }
+        }
 
-#siteNavigation .current { background-color: #ccd; }
+        /* Final section styles */
+        .final-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px;
+            gap: 40px;
+            margin-bottom: 100px;
+            background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
+        }
+        .final-section .text {
+            width: 50%;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 10px;
+        }
+        .final-section iframe {
+            width: 50%;
+            height: 350px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 768px) {
+            /* Final Section */
+            .final-section {
+                flex-direction: column; /* Stack content vertically */
+                padding: 20px; /* Reduce padding */
+            }
+            .final-section .text,
+            .final-section iframe {
+                width: 100%; /* Full width for content */
+            }
+            .final-section iframe {
+                margin-top: 20px; /* Add spacing between text and video */
+            }
+        }
 
-#siteNavigation a:hover   { text-decoration: none;  background-color: #fff;  color: #000; }
-#siteNavigation a:active  { text-decoration: none;  background-color: #ccc; }
+        @media (max-width: 768px) {
+            body {
+                font-size: 0.9rem; /* Adjust font size for smaller screens */
+            }
+            h1, h2, h3 {
+                font-size: 1.5rem; /* Reduce heading sizes */
+            }
+            p {
+                font-size: 1rem; /* Adjust paragraph font size */
+            }
+            .hero-text {
+                top: 50%;
+                font-size: 1.2rem; /* Reduce hero text size */
+            }
+            .hero-text h2 {
+                font-size: 1.8rem; /* Adjust hero subheading size */
+            }
+            .hero-arrow {
+                bottom: 5%;
+                font-size: 1.8rem; /* Adjust arrow size */
+            }
+            .section {
+                flex-direction: column;
+                padding: 20px; /* Reduce padding */
+            }
+            .section img {
+                width: 100%; /* Full width for images */
+            }
+            .section-text {
+                width: 100%; /* Full width for text */
+            }
+            .team .member {
+                width: 48%; /* Adjust for 2 columns on mobile */
+            }
+            .final-section {
+                flex-direction: column;
+                padding: 20px; /* Reduce padding */
+            }
+            .final-section .text,
+            .final-section iframe {
+                width: 100%; /* Full width for content */
+            }
+        }
 
+        @media (max-width: 480px) {
+            h1, h2, h3 {
+                font-size: 1.2rem; /* Further reduce heading sizes */
+            }
+            p {
+                font-size: 0.9rem; /* Further adjust paragraph font size */
+            }
+            .hero-text {
+                font-size: 1rem; /* Further reduce hero text size */
+            }
+            .hero-text h2 {
+                font-size: 1.5rem; /* Further adjust hero subheading size */
+            }
+            .hero-arrow {
+                font-size: 1.5rem; /* Further adjust arrow size */
+            }
+            .team .member {
+                width: 100%; /* Single column for team members */
+            }
+        }
 
-a:link    { text-decoration: underline;  color: #00f; }
-a:visited { text-decoration: underline;  color: #000; }
-a:hover   { text-decoration: underline;  color: #c00; }
-a:active  { text-decoration: underline; }
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0); /* Start scaled down */
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 282px; /* Scale width by sqrt(2) */
+            height: 84px; /* Scale height by sqrt(2) */
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 42px; /* Scale border radius by sqrt(2) */
+            box-shadow: 0 5.66px 11.31px rgba(0, 0, 0, 0.2); /* Adjust shadow for new size */
+            z-index: 1000;
+            animation: navbarFadeIn 1s ease-out forwards; /* Fade-in animation */
+        }
+        @keyframes navbarFadeIn {
+            to {
+                transform: translate(-50%, -50%) scale(1); /* Scale to normal size */
+            }
+        }
+        .navbar img {
+            width: 56.57px; /* Scale width by sqrt(2) */
+            height: 56.57px; /* Scale height by sqrt(2) */
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .navbar img.middle {
+            width: 70.71px; /* Scale width by sqrt(2) */
+            height: 70.71px; /* Scale height by sqrt(2) */
+        }
+        .navbar img:hover {
+            transform: scale(1.2); /* Keep hover effect proportional */
+        }
 
-#pageContent {
-	clear: both;
-	border-bottom: 6px solid #000;
-	padding: 10px;  padding-top: 20px;
-	line-height: 1.65em;
-	background-image: url(backblue.gif);
-	background-repeat: no-repeat;
-	background-position: top right;
-	}
+        /* Hover rectangle styles */
+        .navbar a {
+            position: relative;
+        }
+        .navbar a .hover-rectangle {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            width: 100px;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .navbar a:hover .hover-rectangle {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
 
-#pageContent, #siteNavigation {
-	background-color: #ccd;
-	}
-
-
-.imgLeft  { float: left;   margin-right: 10px;  margin-bottom: 10px; }
-.imgRight { float: right;  margin-left: 10px;   margin-bottom: 10px; }
-
-hr { height: 1px;  color: #000;  background-color: #000;  margin-bottom: 15px; }
-
-h1 { margin: 0;  font-weight: bold;  font-size: 2em; }
-h2 { margin: 0;  font-weight: bold;  font-size: 1.6em; }
-h3 { margin: 0;  font-weight: bold;  font-size: 1.3em; }
-h4 { margin: 0;  font-weight: bold;  font-size: 1.18em; }
-
-.blak { background-color: #000; }
-.hide { display: none; }
-.tableWidth { min-width: 400px; }
-
-.tblRegular       { border-collapse: collapse; }
-.tblRegular td    { padding: 6px;  background-image: url(fade.gif);  border: 2px solid #99c; }
-.tblHeaderColor, .tblHeaderColor td { background: #99c; }
-.tblNoBorder td   { border: 0; }
-
-
-</style>
-
+        /* Page indicator styles */
+        .page-indicator {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100%); /* Start off-screen */
+            width: 200px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideDown 1s ease-out forwards, fadeOut 2s 3s ease-out forwards; /* Slide down and fade out */
+            z-index: 1001;
+        }
+        @keyframes slideDown {
+            to {
+                transform: translateX(-50%) translateY(20px); /* Slide into view */
+            }
+        }
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
+<body>
+    <!-- Page Indicator -->
+    <div class="page-indicator">Welcome to SuperNAO</div>
 
-<table width="76%" border="0" align="center" cellspacing="0" cellpadding="3" class="tableWidth">
-	<tr>
-	<td id="subTitle">HTTrack Website Copier - Open Source offline browser</td>
-	</tr>
-</table>
-<table width="76%" border="0" align="center" cellspacing="0" cellpadding="0" class="tableWidth">
-<tr class="blak">
-<td>
-	<table width="100%" border="0" align="center" cellspacing="1" cellpadding="0">
-	<tr>
-	<td colspan="6"> 
-		<table width="100%" border="0" align="center" cellspacing="0" cellpadding="10">
-		<tr> 
-		<td id="pageContent"> 
-<!-- ==================== End prologue ==================== -->
+    <!-- Hero Section -->
+    <div class="hero">
+        <video id="hero-video" muted>
+            <source src="naovola.mp4" type="video/mp4">
+        </video>
+        <div class="hero-text">
+            <h1>SuperNAO</h1>
+            <h2>La robotica al servizio delle persone</h2>
+        </div>
+        <div class="hero-arrow" onclick="scrollToContent()">&#x25BC;</div>
+    </div>
+    <script>
+        function scrollToContent() {
+            document.querySelector('.section').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 
-	<meta name="generator" content="HTTrack Website Copier/3.x">
-	<TITLE>Local index - HTTrack</TITLE>
-</HEAD>
-<BODY>
-<H1 ALIGN=Center>Index of locally available sites:</H1>
-	<TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="0">
-		<TR>
-			<TD BACKGROUND="fade.gif">
-				&middot;
-					<A HREF="supernao.zorn.it/index.html">
-						SuperNAO - Home
-					</A>		
-			</TD>
-		</TR>
-	</TABLE>
-	<BR>
-	<BR>
-	<BR>
-  	<H6 ALIGN="RIGHT">
-	<I>Mirror and index made by HTTrack Website Copier [XR&amp;CO'2008]</I>
-	</H6>
-	<!-- Mirror and index made by HTTrack Website Copier/3.49-4 [XR&CO'2014] -->
-	<!-- Thanks for using HTTrack Website Copier! -->
-	<meta HTTP-EQUIV="Refresh" CONTENT="0; URL=supernao.zorn.it/index.html">
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="progetti.html">
+            <img src="iconesito/icon-progetti.png" alt="Logo 1">
+            <div class="hover-rectangle">Projects</div>
+        </a>
+        <a href="index.html">
+            <img src="iconesito/favicon.png" class="middle" alt="Logo 2">
+            <div class="hover-rectangle">Home</div>
+        </a>
+        <a href="team.html">
+            <img src="iconesito/icon-team.png" alt="Logo 3">
+            <div class="hover-rectangle">Team</div>
+        </a>
+    </div>
 
+    <!-- Combined Section -->
+    <div class="combined-section">
+        <div class="content">
+            <div class="text">
+                <h2>Studenti e innovazione</h2>
+                <p>SuperNAO è un team di dieci studenti del Liceo Scientifico Azzarita, appassionati di tecnologia e innovazione. Sotto la guida del professor Ivano Coccorullo, ci siamo immersi nel mondo della robotica umanoide partecipando alla NAO Challenge. Abbiamo sviluppato competenze in vari ambiti, dalla programmazione alla creazione di contenuti, collaborando con marchi e università prestigiose. Ogni membro ha contribuito con creatività, trasformando un’idea in un progetto innovativo. L’esperienza nelle competizioni nazionali ci ha spinto a superare i nostri limiti. Ora ci chiediamo: come possiamo continuare a crescere e innovare?</p>
+            </div>
+            <img class="image" src="group1.webp" alt="Section 1 Image">
+        </div>
+        <div class="content">
+            <div class="text">
+                <h2>Con l'aiuto della Tecnologia</h2>
+                <p>La tecnologia è il cuore di SuperNAO. Utilizzando robot umanoidi, abbiamo esplorato applicazioni della robotica in contesti educativi e sociali, come musei e scuole. Le nostre esperienze ci hanno insegnato l’importanza di usare la tecnologia per promuovere valori educativi e sociali. Grazie alla collaborazione con università come La Sapienza e startup internazionali, abbiamo sviluppato un programma educativo sull’educazione alimentare, sfruttando l’intelligenza artificiale.</p>
+            </div>
+            <img class="image" src="group2.webp" alt="Section 2 Image">
+        </div>
+        <div class="content">
+            <div class="text">
+                <h2>Perchè proprio noi?</h2>
+                <p>La nostra forza in SuperNAO è la passione e la determinazione. Siamo un gruppo di studenti motivati, curiosi e pronti a affrontare ogni sfida con entusiasmo. La robotica umanoide ci ha insegnato che l’innovazione non riguarda solo la tecnologia, ma anche la collaborazione. Ogni successo ci spinge a esplorare nuove possibilità, convinti che il nostro impegno possa fare la differenza nelle comunità in cui operiamo. Questo ci motiva a cercare nuove opportunità e lasciare un segno positivo nel mondo.</p>
+            </div>
+            <img class="image" src="/SuperNAO 2023/compressed/IMG_20230522_093506.webp" alt="Section 3 Image">
+        </div>
+    </div>
 
-<!-- ==================== Start epilogue ==================== -->
-		</td>
-		</tr>
-		</table>
-	</td>
-	</tr>
-	</table>
-</td>
-</tr>
-</table>
+    <!-- Team Section -->
+    <div class="team">
+        <h2>Our Team</h2>
+        <div class="visible-members">
+            <div class="member">
+                <div class="background"></div>
+                <img src="/fototeamwebp/Gabriele_V.webp" alt="Gabriele Delle Site">
+                <p>Gabriele Delle Site</p>
+            </div>
+            <div class="member">
+                <div class="background"></div>
+                <img src="/fototeamwebp/Filippo_Labate_V.webp" alt="Filippo Labate">
+                <p>Filippo Labate</p>
+            </div>
+            <div class="member">
+                <div class="background"></div>
+                <img src="/fototeamwebp/Ching_Hoi_V.webp" alt="Ching Hoi Wong">
+                <p>Ching Hoi Wong</p>
+            </div>
+            <div class="member">
+                <div class="background"></div>
+                <img src="/fototeamwebp/Niccolo_Lucidi_V.webp" alt="Niccolò Lucidi">
+                <p>Niccolò Lucidi</p>
+            </div>
+        </div>
+        <div class="hidden-members">
+            <div class="member">
+                <div class="background"></div>
+                <img src="/fototeamwebp/Virginia_D_Andrea_V.webp" alt="Virginia D'Andrea">
+                <p>Virginia D'Andrea</p>
+            </div>
+            <div class="member">
+                <div class="background"></div>
+                <img src="/fototeamwebp/Gabriele_Russo_V.webp" alt="Gabriele Russo">
+                <p>Gabriele Russo</p>
+            </div>
+            <div class="member">
+                <div class="background"></div>
+                <img src="/fototeamwebp/Marco_Zorn_V.webp" alt="Marco Zorn">
+                <p>Marco Zorn</p>
+            </div>
+            <div class="member">
+                <div class="background"></div>
+                <img src="/fototeamwebp/Leonardo_Vellella_V.webp" alt="Leonardo Vellella">
+                <p>Leonardo Vellella</p>
+            </div>
+            <div class="member">
+                <div class="background"></div>
+                <img src="/fototeamwebp/SuperNAO_V.webp" alt="SuperNAO">
+                <p>SuperNAO</p>
+            </div>
+        </div>
+        <button onclick="toggleTeam()">Scopri gli altri</button>
+    </div>
+    <script>
+        function toggleTeam() {
+            const hiddenMembers = document.querySelector('.team .hidden-members');
+            const button = document.querySelector('.team button');
+            if (hiddenMembers.style.display === 'none' || hiddenMembers.style.display === '') {
+                hiddenMembers.style.display = 'flex';
+                button.textContent = 'Mostra meno';
+            } else {
+                hiddenMembers.style.display = 'none';
+                button.textContent = 'Scopri gli altri';
+            }
+        }
+    </script>
 
-<table width="76%" border="0" align="center" valign="bottom" cellspacing="0" cellpadding="0">
-	<tr>
-	<td id="footer"><small>&copy; 2008 Xavier Roche & other contributors - Web Design: Leto Kauler.</small></td>
-	</tr>
-</table>
+    <!-- Final Section -->
+    <div class="final-section">
+        <div class="text">
+            <h1>Il nostro ultimo progetto</h1>
+            <h3>Dove la Robotica incontra lo Sport: SuperNAO Trainer</h3>
+            <p>Il nostro team ha lavorato duramente per sviluppare un sistema avanzato per trasformare il nostro umanoide, NAO, in un super-allenatore per potenziare, migliorare e diversificare l'attività sportiva. In questo video, vi mostriamo il nostro progetto per integrare la robotica umanoide all'interno del settore dello sport.</p>
+        </div>
+        <iframe src="https://www.youtube.com/embed/ep9E2Q-0SEo" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+    const video = document.getElementById('hero-video');
+    let targetTime = 0;
+
+    const updateTargetTime = () => {
+        const fullScroll = document.body.scrollHeight - window.innerHeight;
+        const effectiveMaxScroll = fullScroll * 0.75; // Change to 0.5 if you want it even faster
+        const clampedScroll = Math.min(window.scrollY, effectiveMaxScroll);
+        const scrollFraction = clampedScroll / effectiveMaxScroll;
+
+        targetTime = scrollFraction * video.duration;
+    };
+
+    const smoothUpdate = () => {
+        if (!isNaN(video.duration)) {
+            // 0.1 is smooth, you could try 0.2 or 0.3 for faster easing
+            video.currentTime += (targetTime - video.currentTime) * 0.3;
+        }
+        requestAnimationFrame(smoothUpdate);
+    };
+
+    window.addEventListener('scroll', updateTargetTime);
+
+    video.addEventListener('loadedmetadata', () => {
+        video.pause();             // Prevent autoplay
+        updateTargetTime();        // Initialize
+        requestAnimationFrame(smoothUpdate); // Start animation loop
+    });
+</script>
+
 
 </body>
-
 </html>
-
-
