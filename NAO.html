@@ -6,6 +6,14 @@
         <title>SuperNAO - Team</title>
     <link rel="icon" type="image/x-icon" href="iconesito/favicon.png" />
     <style>
+        /* General styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         /* Navbar styles */
         .navbar {
             position: fixed;
@@ -64,7 +72,7 @@
             backdrop-filter: blur(10px);
             border-radius: 10px;
             text-align: center;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 0.9rem;
             color: #333;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -77,6 +85,125 @@
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
+
+        /* Footer styles */
+.footer {
+    background: rgb(1, 9, 28); /* Dark blue background */
+    padding: 60px 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.footer-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4.5rem; /* Bigger text */
+    color: #FF4500; /* Orange color for titles */
+    margin-bottom: 20px;
+}
+
+.footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* More horizontal space on desktop */
+}
+
+.footer-social-links a img.social-icon {
+    width: 50px;
+    height: 50px;
+    filter: brightness(0) invert(1); /* Make icons white */
+    transition: filter 0.3s ease;
+}
+
+.footer-social-links a img.social-icon:hover {
+      filter: invert(49%) sepia(81%) saturate(745%) hue-rotate(347deg) brightness(95%) contrast(102%);
+}
+
+.footer-social-links a .email-hover-icon {
+    display: none; /* Default hidden */
+}
+
+.footer-social-links a:hover .email-icon {
+    display: none; /* Hide default icon on hover */
+}
+
+.footer-social-links a:hover .email-hover-icon {
+    display: inline; /* Show hover icon */
+}
+
+.sponsor-logos {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Proper spacing between logos */
+    align-items: center; /* Align logos on the same horizontal line */
+    flex-wrap: wrap; /* Wrap logos if necessary */
+}
+
+.sponsor-logos img {
+    max-width: 200px; /* Adjust logo size */
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: none; /* Remove shadow */
+    transition: none; /* Remove hover effects */
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 15px; /* Reduce padding */
+        text-align: center;
+    }
+
+    .footer-section h3 {
+        font-size: 2.5rem; /* Smaller text for titles */
+        margin-bottom: 15px; /* Reduce spacing */
+    }
+
+    .footer-social-links {
+        gap: 30px; /* Reduce horizontal space between icons */
+    }
+
+    .footer-social-links a img.social-icon {
+        width: 40px; /* Smaller icons */
+        height: 40px;
+    }
+
+    .sponsor-logos {
+        gap: 20px; /* Reduce spacing between logos */
+    }
+
+    .sponsor-logos img {
+        max-width: 150px; /* Smaller logo size */
+        max-height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section h3 {
+        font-size: 2rem; /* Further reduce title size */
+    }
+
+    .footer-social-links {
+        gap: 20px; /* Further reduce spacing */
+    }
+
+    .footer-social-links a img.social-icon {
+        width: 35px; /* Smaller icons for very small screens */
+        height: 35px;
+    }
+
+    .sponsor-logos img {
+        max-width: 120px; /* Further reduce logo size */
+        max-height: 60px;
+    }
+}
     </style>
 </head>
 <body>
@@ -95,5 +222,43 @@
             <div class="hover-rectangle">Team</div>
         </a>
     </div>
+
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-inner">
+        <!-- Contatti Section -->
+        <div class="footer-section social">
+            <h3>CONTATTI</h3> <!-- Text is now all caps -->
+            <div class="footer-social-links">
+                <a href="https://instagram.com/supernaoteam" target="_blank" aria-label="Instagram">
+                    <img src="iconesito/instagram-svgrepo-com.svg" alt="Instagram" class="social-icon" />
+                </a>
+                <a href="https://linkedin.com/supernaoteam" target="_blank" aria-label="Linkedin">
+                    <img src="iconesito/linkedin-svgrepo-com.svg" alt="Linkedin" class="social-icon" />
+                </a>
+                <a href="https://youtube.com/supernaoteam" target="_blank" aria-label="YouTube">
+                    <img src="iconesito/youtube-color-svgrepo-com.svg" alt="YouTube" class="social-icon" />
+                </a>
+                <a href="mailto:contactsupernao@gmail.com" aria-label="Email">
+                    <img src="iconesito/email-svgrepo-com.svg" alt="Email" class="social-icon email-icon" />
+                    <img src="iconesito/email-open-svgrepo-com.svg" alt="Email Hover" class="social-icon email-hover-icon" />
+                </a>
+            </div>
+        </div>
+
+        <!-- Sponsors Section -->
+        <div class="footer-section sponsors">
+            <h3>CON IL SUPPORTO DI:</h3> <!-- Text is now all caps -->
+            <div class="sponsor-logos">
+                <img src="sponsor logo/Still 2025-06-02 174259_1.3.1.png" alt="IIS SALVINI" />
+                <img src="sponsor logo/nuvolari.svg" alt="NUVOLARI" /> <!-- Properly added Nuvolari SVG -->
+                <img src="sponsor logo/Still 2025-06-02 175737_1.4.1 (1).png" alt="HAPPY FAMILY" />
+                <img src="sponsor logo/fairtilelogo.avif" alt="FAIRTILE" />
+                <img src="sponsor logo/sapienza (1).png" alt="Sapienza University" />
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>

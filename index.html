@@ -13,14 +13,14 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 55%, hsla(24, 100%, 50%, 1) 100%);
+            background: white;
             }
         @media (max-width: 768px) {
             body {
-                background: linear-gradient(to bottom, white 55%, #ff6600 100%);
+                background: white;
             }
         }
         h1, h2, h3 {
@@ -33,7 +33,7 @@
             font-size: 1.1rem;
             line-height: 1.8;
             text-align: justify;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Hero section styles */
@@ -42,7 +42,7 @@
             width: 100%;
             height: auto;
             overflow: hidden;
-            background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
+            background: white;
         }
         .hero video {
             width: 100%;
@@ -52,17 +52,18 @@
         }
         .hero-text {
             position: absolute;
-            top: 60%;
+            top: 50%; /* Center vertically */
             left: 50%;
             transform: translate(-50%, -50%);
-            color: white;
             text-align: center;
-            font-size: 2rem;
+        }
+        .hero-text h1 {
+            font-size: 10rem; /* Twice the size */
+            line-height: 1; /* Adjust line height for better spacing */
         }
         .hero-text h2 {
-            color: aliceblue;
-            font-size: 2.5rem;
-            margin: 0;
+            font-size: 3rem; /* Adjust subheading size */
+            margin-top: 20px; /* Add spacing below the main title */
         }
         .hero-arrow {
             position: absolute;
@@ -99,10 +100,11 @@
                 object-fit: cover;
                 object-position: 70% center; /* This will show more of the right side */
             }
-            .hero-text {
+            .hero-text h1{
                 top: 20%; /* Center vertically */
-                font-size: 1.2rem; /* Adjust text size */
+                font-size: 5rem; /* Adjust text size */
             }
+
             .hero-text h2 {
                 font-size: 1.8rem; /* Adjust subheading size */
             }
@@ -118,7 +120,7 @@
             flex-direction: column;
             gap: 40px;
             padding: 80px;
-            background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
+            background: #d64b24;
         }
         .combined-section .content {
             display: flex;
@@ -164,91 +166,109 @@
 
         /* Combined Section Text Hover Effect */
 .combined-section .text {
-    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition for hover and de-hover */
+    transition: transform 0.25s ease, box-shadow 0.25s ease; /* Smooth transition for hover and de-hover */
 }
 
 .combined-section .text:hover {
-    transform: scale(1.05); /* Slightly enlarge the block */
+    transform: scale(1.005); /* Slightly enlarge the block */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
 }
 
         /* Team section styles */
-        .team {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
-        }
-        .team .visible-members,
-        .team .hidden-members {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .team .member {
-            position: relative; /* Ensure the text is positioned relative to the member container */
-            width: 100%;
-            max-width: 180px;
-            margin: 0 auto;
-            padding: 8px;
-            background: rgb(255, 255, 255);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+        .team-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
 
-        .team .NAO{
-            position: relative; /* Ensure the text is positioned relative to the member container */
-            width: 100%;
-            max-width: 180px;
-            margin: 0 auto;
-            padding: 8px;
-            background: #d64b24;
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+.section-title {
+    text-align: center;
+    color: #d64b24;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
 
-        .team .h2{
-            font-size: 2.5 rem;
-        }
-        .team img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .team p {
-            position: absolute; /* Position the text absolutely within the member container */
-            bottom: 10px; /* Move the text to the bottom of the container */
-            left: 50%; /* Center the text horizontally */
-            transform: translateX(-50%); /* Adjust for centering */
-            margin: 0;
-            font-size: 0.9rem;
-            font-weight: bold; /* Make text bold */
-            color: #d64b24;
-            text-align: center; /* Center the text */
-            padding: 5px 5px; /* Add padding inside the rectangle */
-            box-sizing: border-box; /* Ensure padding doesn't affect the size */
-            background: rgb(255, 255, 255); /* Match the box background */
-            border-radius: 10px; /* Ensure text stays within rounded corners */
-        }
-        .team button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: var(--NAO);
-            color: white;
-            background: #d64b24;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .team button:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    width: 100%;
+}
+
+.team-card {
+    position: relative;
+    width: 260px;
+    margin-bottom: 20px;
+}
+
+.photo-container {
+    background: #f0f0f0;
+    border-radius: 20px;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover .photo-container {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2), 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .photo-container img {
+    transform: scale(1.05);
+}
+
+.name-pill {
+    background: white;
+    border-radius: 20px;
+    padding: 15px 25px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+    margin-top: -5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover .name-pill {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.team-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.team-name .highlight {
+    color: #d64b24;
+}
+
+.team-role {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
         @media (max-width: 768px) {
             .team {
                 padding: 20px 10px;
@@ -275,7 +295,7 @@
         /* Final section styles */
         .final-section {
             display: flex;
-            align-items: center;
+            align-items: stretch; /* Changed from center to stretch */
             justify-content: space-between;
             padding: 60px;
             gap: 40px;
@@ -288,61 +308,117 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background: rgb(255, 255, 255);
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+        }
+        .final-section .video-container {
+            width: 50%;
+            position: relative;
+            padding-top: 28.125%; /* 16:9 aspect ratio (50% * 9/16 = 28.125%) */
         }
         .final-section iframe {
-            width: 50%;
-            height: 350px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .final-section .learn-more {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: var(--NAO);
-            color: rgb(255, 255, 255);
-            background: #d64b24;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 500;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
 
-        .final-section .learn-more:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
+        /* Update the mobile styles for final section */
         @media (max-width: 768px) {
-            /* Final Section */
             .final-section {
-                flex-direction: column; /* Stack content vertically */
-                padding: 20px; /* Reduce padding */
-                margin-bottom: 40px;
+                flex-direction: column-reverse; /* Video first, then text */
+                padding: 20px;
+                gap: 30px;
             }
-            .final-section .text,
-            .final-section iframe {
-                width: 100%; /* Full width for content */
+            
+            .final-section .text {
+                width: 100%;
+                padding: 20px;
+                text-align: center;
             }
-            .final-section iframe {
-                height: 200px;
-                margin-top: 20px; /* Add spacing between text and video */
+            
+            .final-section .video-container {
+                width: 100%;
+                padding-top: 56.25%; /* 16:9 aspect ratio */
+                margin-bottom: 20px;
             }
+            
             .final-section h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
+                margin-bottom: 10px;
             }
+
             .final-section h3 {
                 font-size: 1.2rem;
+                margin-bottom: 15px;
             }
-            .final-section .learn-more {
-                display: block;
+
+            .final-section p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .learn-more {
+                display: inline-block;
+                width: auto;
+                min-width: 200px;
+                padding: 12px 30px;
+                margin: 20px auto 0;
                 text-align: center;
-                margin: 20px auto;
-                width: fit-content;
+                background: #FF4500;
+                color: white;
+                border-radius: 25px;
+                text-decoration: none;
+                font-weight: 500;
+                transition: transform 0.3s ease, background 0.3s ease;
+            }
+
+            .learn-more:hover {
+                background: #FF6600;
+                transform: translateY(-2px);
+            }
+
+            /* Dialog improvements */
+            .dialog-box {
+                bottom: 130px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 85%;
+                max-width: 350px;
             }
         }
 
+        /* Additional breakpoint for extra small devices */
+        @media (max-width: 360px) {
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .team-card {
+        max-width: 260px;
+    }
+
+    .photo-container {
+        height: 240px;
+    }
+
+    .floating-icon {
+        width: 80px;
+        height: 80px;
+    }
+}
         @media (max-width: 768px) {
             body {
                 font-size: 0.9rem; /* Adjust font size for smaller screens */
@@ -464,7 +540,7 @@
             backdrop-filter: blur(10px);
             border-radius: 10px;
             text-align: center;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 0.9rem;
             color: #333;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -489,7 +565,7 @@
             backdrop-filter: blur(10px);
             border-radius: 10px;
             text-align: center;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             color: #333;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -557,7 +633,7 @@
         .dialog-content {
             position: relative;
             text-align: left; /* Align text to the left */
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             line-height: 1.6;
         }
@@ -734,11 +810,503 @@
         height: 50px;
     }
 }
+
+/* Update these CSS rules in your existing styles */
+.hidden-members {
+    display: none;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    margin-top: 30px; /* Add some spacing from the visible members */
+}
+
+/* Ensure both grids have the same layout */
+.team-grid, .hidden-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    width: 100%;
+}
+
+    /* Navbar styles */
+    .navbar {
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0); /* Start scaled down */
+        display: flex;
+        align-items: center; /* Vertically center elements */
+        justify-content: space-around;
+        width: 282px; /* Scale width by sqrt(2) */
+        height: 84px; /* Scale height by sqrt(2) */
+        background: rgba(0, 0, 0, 0.36);
+        backdrop-filter: blur(20px);
+        border-radius: 42px; /* Scale border radius by sqrt(2) */
+        box-shadow: 0 5.66px 11.31px rgba(0, 0, 0, 0.2); /* Adjust shadow for new size */
+        z-index: 1000;
+        animation: navbarFadeIn 1s ease-out forwards; /* Fade-in animation */
+        -webkit-backdrop-filter: saturate(125%) blur(20px); /* For Safari compatibility */
+        backdrop-filter: saturate(125%) blur(20px); /* For modern browsers */
+    }
+    @keyframes navbarFadeIn {
+        to {
+            transform: translate(-50%, -50%) scale(1); /* Scale to normal size */
+        }
+    }
+    .navbar img {
+        width: 56.57px; /* Scale width by sqrt(2) */
+        height: 56.57px; /* Scale height by sqrt(2) */
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        display: block; /* Ensure images are block-level for alignment */
+    }
+    .navbar img.middle {
+        width: 70.71px; /* Scale width by sqrt(2) */
+        height: 70.71px; /* Scale height by sqrt(2) */
+    }
+    .navbar img:hover {
+        transform: scale(1.2); /* Keep hover effect proportional */
+    }
+
+    /* Hover rectangle styles */
+    .navbar a {
+        position: relative;
+    }
+    .navbar a .hover-rectangle {
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100%);
+        width: 100px;
+        padding: 5px;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.9rem;
+        color: #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        pointer-events: none;
+    }
+    .navbar a:hover .hover-rectangle {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    /* Page indicator styles */
+    .page-indicator {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%); /* Start off-screen */
+        width: 200px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        color: #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        animation: slideDown 1s ease-out forwards, fadeOut 2s 3s ease-out forwards; /* Slide down and fade out */
+        z-index: 1001;
+    }
+    @keyframes slideDown {
+        to {
+            transform: translateX(-50%) translateY(20px); /* Slide into view */
+        }
+    }
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+
+    /* Floating Icon */
+    .floating-icon {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: 140px; /* Doubled size */
+        height: 140px; /* Doubled size */
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .floating-icon:hover {
+        transform: scale(1.1); /* Slightly enlarge on hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add a stronger shadow */
+    }
+
+    .floating-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    /* Dialog Box */
+    .dialog-box {
+        position: fixed;
+        bottom: 100px;
+        left: 180px; /* Positioned to the right of the larger icon */
+        transform: translateY(0);
+        width: 500px; /* Expanded horizontally */
+        max-width: 90%;
+        background-color: rgb(255, 94, 0);
+        color: black;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px; /* Rounded corners for a speech bubble look */
+        padding: 20px;
+        display: none;
+        z-index: 1001;
+    }
+
+    .dialog-content {
+        position: relative;
+        text-align: left; /* Align text to the left */
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .dialog-content p {
+        margin: 0;
+        padding: 0;
+        color: rgb(255, 255, 255); /* Ensure text is readable */
+    }
+
+    /* Close Button */
+    .close-dialog {
+        position: relative; /* Position within the dialog content */
+        display: inline-block; /* Make it fit its content */
+        width: 30px; /* Set width for a square */
+        height: 30px; /* Set height for a square */
+        font-size: 1.2rem; /* Adjust font size */
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        border-radius: 50%; /* Make it circular */
+        background: rgba(255, 255, 255, 0.4); /* Background color */
+        text-align: center; /* Center the text */
+        line-height: 30px; /* Vertically center the "X" */
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .close-dialog:hover {
+        background: rgba(255, 255, 255, 0.6); /* Slightly brighter on hover */
+        transform: scale(1.1); /* Slightly enlarge on hover */
+    }
+
+    @media (max-width: 768px) {
+            /* Floating Icon */
+            .floating-icon {
+                width: 100px; /* Smaller size for mobile */
+                height: 100px; /* Smaller size for mobile */
+                bottom: 15px; /* Adjust position */
+                left: 15px; /* Adjust position */
+            }
+
+            .floating-icon:hover {
+                transform: scale(1.05); /* Slightly smaller hover effect */
+            }
+
+            /* Dialog Box */
+            .dialog-box {
+                bottom: 130px; /* Adjust position above the smaller icon */
+                left: 15px; /* Align with the icon */
+                width: 90%; /* Use most of the screen width */
+                max-width: 400px; /* Limit the width */
+                padding: 15px; /* Reduce padding */
+                border-radius: 10px; /* Slightly smaller rounded corners */
+            }
+
+            .dialog-content {
+                font-size: 0.9rem; /* Slightly smaller font size */
+                line-height: 1.4; /* Adjust line height */
+                padding-right: 30px; /* Adjust padding for the close button */
+            }
+
+            .close-dialog {
+                bottom: 8px; /* Adjust position */
+                right: 8px; /* Adjust position */
+                font-size: 1rem; /* Slightly smaller close button */
+                padding: 4px; /* Adjust padding */
+            }
+        }
+
+        @media (max-width: 768px) {
+    /* Adjust the project grid for single-column layout */
+    .project-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px; /* Reduce gap between cards */
+        padding: 10px;
+    }
+
+    /* Adjust the project card for mobile */
+    .project-card {
+        max-width: 100%; /* Ensure it fits within the screen */
+        padding: 10px; /* Add padding for space between borders */
+        border-radius: 10px; /* Slightly smaller rounded corners */
+    }
+
+    /* Adjust the project content for mobile */
+    .project-content {
+        padding: 15px; /* Add space between text and borders */
+    }
+
+    .project-title {
+        font-size: 1.2rem; /* Slightly smaller title font size */
+        margin-bottom: 8px;
+    }
+
+    .project-description {
+        font-size: 0.9rem; /* Slightly smaller description font size */
+        line-height: 1.4; /* Adjust line height for readability */
+        margin-bottom: 15px;
+    }
+
+    .project-link {
+        width: 100%; /* Make the link button full width */
+        text-align: center;
+        padding: 10px 0;
+        font-size: 1rem;
+    }
+
+    /* Adjust navbar for mobile */
+    .navbar {
+        width: 240px;
+        height: 70px;
+        top: 8%;
+    }
+
+    .navbar img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .navbar img.middle {
+        width: 55px;
+        height: 55px;
+    }
+
+    .navbar a .hover-rectangle {
+        display: none; /* Hide hover rectangles on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for very small devices */
+    .projects-container {
+        margin-top: 100px;
+        padding: 10px;
+    }
+
+    .project-card {
+        border-radius: 10px; /* Smaller rounded corners */
+    }
+
+    .project-image {
+        height: 160px; /* Adjust image height */
+    }
+
+    .project-content {
+        padding: 12px; /* Add space between text and borders */
+    }
+
+    .project-title {
+        font-size: 1.1rem; /* Smaller title font size */
+    }
+
+    .project-description {
+        font-size: 0.85rem; /* Smaller description font size */
+        line-height: 1.4;
+    }
+
+    .project-link {
+        font-size: 0.9rem; /* Smaller button font size */
+    }
+
+    .navbar {
+        width: 200px;
+        height: 60px;
+    }
+
+    .navbar img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar img.middle {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Add these styles to your existing CSS */
+.hidden-members {
+    display: none;
+}
+
+.show-more-btn {
+    background: #d64b24;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 40px auto 0;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(214, 75, 36, 0.2);
+}
+
+.show-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(214, 75, 36, 0.3);
+}
+
+.show-more-btn.hidden {
+    display: none;
+    @media (max-width: 768px) {
+    /* Hero section improvements */
+    .hero-text h1 {
+        font-size: 4rem; /* Reduce from 10rem for better mobile fit */
+    }
+    
+    .hero-text h2 {
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+
+    /* Final section improvements */
+    .final-section {
+        flex-direction: column-reverse; /* Video first, then text */
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .final-section .text {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .final-section .video-container {
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 aspect ratio */
+        margin-bottom: 20px;
+    }
+
+    /* Team section improvements */
+    .team-section {
+        padding: 20px 10px;
+    }
+
+    .team-card {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 20px;
+    }
+
+    .photo-container {
+        height: 280px; /* Slightly smaller height on mobile */
+    }
+
+    /* Combined section improvements */
+    .combined-section {
+        padding: 40px 20px;
+    }
+
+    .combined-section .content {
+        margin-bottom: 30px;
+    }
+
+    .combined-section .text {
+        text-align: center;
+        padding: 25px;
+    }
+
+    /* Learn more button improvements */
+    .learn-more {
+        display: inline-block;
+        width: auto;
+        min-width: 200px;
+        padding: 12px 30px;
+        margin: 20px auto 0;
+        text-align: center;
+        background: #FF4500;
+        color: white;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .learn-more:hover {
+        background: #FF6600;
+        transform: translateY(-2px);
+    }
+
+    /* Dialog improvements */
+    .dialog-box {
+        bottom: 130px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        max-width: 350px;
+    }
+}
+
+/* Additional breakpoint for extra small devices */
+@media (max-width: 360px) {
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .team-card {
+        max-width: 260px;
+    }
+
+    .photo-container {
+        height: 240px;
+    }
+
+    .floating-icon {
+        width: 80px;
+        height: 80px;
+    }
+}
     </style>
 </head>
 <body>
     <!-- Page Indicator -->
-    <div class="page-indicator">Welcome to SuperNAO</div>
+    <div class="page-indicator">Benvenuto 🌸 SuperNAO</div>
 
     <!-- Hero Section -->
     <div class="hero">
@@ -746,8 +1314,10 @@
             <source src="loop.mp4" type="video/mp4">
         </video>
         <div class="hero-text">
-            <h1>SuperNAO</h1>
-            <h2>La robotica al servizio delle persone</h2>
+            <h1>
+                <span style="color: #FF4500;">SUPER</span><span style="color: white;">NAO</span>
+            </h1>
+            <h2><span style="color: white;">La <span style="color: #FF4500;">Robotica</span> al servizio delle <span style="color: #FF4500;">Persone</span></span></h2>
         </div>
         <div class="hero-arrow" onclick="scrollToContent()">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -804,64 +1374,104 @@
     </div>
 
     <!-- Team Section -->
-    <div class="team">
-        <h2>Il Nostro Team</h2>
-        <div class="visible-members">
-            <div class="member">
+    <div class="team-section">
+    <h2 class="section-title">Il Nostro Team</h2>
+    <div class="team-grid">
+        <!-- Initial visible members -->
+        <div class="team-card">
+            <div class="photo-container">
                 <img src="/fototeamwebp/Gabriele_V.webp" alt="Gabriele Delle Site">
-                <p>Gabriele Delle Site</p>
+                <div class="photo-overlay"></div>
             </div>
-            <div class="member">
-                <img src="/fototeamwebp/Filippo_Labate_V.webp" alt="Filippo Labate">
-                <p>Filippo Labate</p>
-            </div>
-            <div class="member">
-                <img src="/fototeamwebp/Ching_Hoi_V.webp" alt="Ching Hoi Wong">
-                <p>Ching Hoi Wong</p>
-            </div>
-            <div class="member">
-                <img src="/fototeamwebp/Niccolo_Lucidi_V.webp" alt="Niccolò Lucidi">
-                <p>Niccolò Lucidi</p>
+            <div class="name-pill">
+                <div class="team-name">Gabriele <span class="highlight">Delle Site</span></div>
+                <div class="team-role">Team Leader</div>
             </div>
         </div>
-        <div class="hidden-members" style="display: none;">
-            <div class="member">
-                <img src="/fototeamwebp/Virginia_D_Andrea_V.webp" alt="Virginia D'Andrea">
-                <p>Virginia D'Andrea</p>
-            </div>
-            <div class="member">
-                <img src="/fototeamwebp/Marco_Zorn_V.webp" alt="Marco Zorn">
-                <p>Marco Zorn</p>
-            </div>
-            <div class="member">
-                <img src="/fototeamwebp/Leonardo_Vellella_V.webp" alt="Leonardo Vellella">
-                <p>Leonardo Vellella</p>
-            </div>
-            <div class="NAO">
-                <img src="/fototeamwebp/SuperNAO_V.webp" alt="SuperNAO">
-                <p>SuperNAO</p>
-            </div>
-        </div>
-        <button onclick="toggleTeam()">Scopri gli altri</button>
-    </div>
-    <script>
-        function toggleTeam() {
-            const hiddenMembers = document.querySelector('.team .hidden-members');
-            const button = document.querySelector('.team button');
-            if (hiddenMembers.style.display === 'none' || hiddenMembers.style.display === '') {
-                hiddenMembers.style.display = 'grid';
-                button.textContent = 'Mostra meno';
-            } else {
-                hiddenMembers.style.display = 'none';
-                button.textContent = 'Scopri gli altri';
-            }
-        }
 
-        // Ensure hidden members are hidden on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('.team .hidden-members').style.display = 'none';
-        });
-    </script>
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Filippo_Labate_V.webp" alt="Filippo Labate">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Filippo <span class="highlight">Labate</span></div>
+                <div class="team-role">PR Manager</div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Ching_Hoi_V.webp" alt="Ching Hoi Wong">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Ching Hoi <span class="highlight">Wong</span></div>
+                <div class="team-role">Developer</div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Niccolo_Lucidi_V.webp" alt="Niccolò Lucidi">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Niccolò <span class="highlight">Lucidi</span></div>
+                <div class="team-role">Developer</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Separate container for hidden members -->
+    <div class="hidden-members">
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Virginia_D_Andrea_V.webp" alt="Virginia D'Andrea">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Virginia <span class="highlight">D'Andrea</span></div>
+                <div class="team-role">Designer</div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Marco_Zorn_V.webp" alt="Marco Zorn">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Marco <span class="highlight">Zorn</span></div>
+                <div class="team-role">Developer</div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Leonardo_Vellella_V.webp" alt="Leonardo Vellella">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Leonardo <span class="highlight">Vellella</span></div>
+                <div class="team-role">Developer</div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/SuperNAO_V.webp" alt="SuperNAO">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Super<span class="highlight">NAO</span></div>
+                <div class="team-role">Robot Assistant</div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="show-more-btn">Mostra Altri Membri</button>
+</div>
 
     <!-- Final Section -->
     <div class="final-section">
@@ -871,7 +1481,9 @@
             <p>Il nostro team ha lavorato duramente per sviluppare un sistema avanzato per trasformare il nostro umanoide, NAO, in un super-allenatore per potenziare, migliorare e diversificare l'attività sportiva. In questo video, vi mostriamo il nostro progetto per integrare la robotica umanoide all'interno del settore dello sport.</p>
             <a href="progetti.html" class="learn-more">Scopri di più</a>
         </div>
-        <iframe src="https://www.youtube.com/embed/ep9E2Q-0SEo" frameborder="0" allowfullscreen></iframe>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/ep9E2Q-0SEo" frameborder="0" allowfullscreen></iframe>
+        </div>
     </div>
 
     <!-- Circular Icon and Dialog -->
@@ -894,169 +1506,177 @@
             dialogBox.style.display = 'none';
         }
     }
+
+    // Show more button functionality
+    document.querySelector('.show-more-btn').addEventListener('click', function() {
+    const hiddenMembers = document.querySelector('.hidden-members');
+    const button = this;
+
+    if (hiddenMembers.style.display === 'none' || hiddenMembers.style.display === '') {
+        hiddenMembers.style.display = 'grid';
+        hiddenMembers.style.gridTemplateColumns = 'repeat(auto-fit, minmax(260px, 1fr))';
+        hiddenMembers.style.gap = '30px';
+        button.textContent = 'Mostra Meno';
+    } else {
+        hiddenMembers.style.display = 'none';
+        button.textContent = 'Mostra Altri Membri';
+    }
+});
     </script>
 
     <!-- Footer -->
 <footer class="footer">
     <div class="footer-inner">
-        <!-- Social Section -->
+        <!-- Contatti Section -->
         <div class="footer-section social">
-            <h3>Seguici</h3>
+            <h3>CONTATTI</h3> <!-- Text is now all caps -->
             <div class="footer-social-links">
                 <a href="https://instagram.com/supernaoteam" target="_blank" aria-label="Instagram">
-                    <img src="iconesito/instagram-1-svgrepo-com.svg" alt="Instagram" />
+                    <img src="iconesito/instagram-svgrepo-com.svg" alt="Instagram" class="social-icon" />
                 </a>
                 <a href="https://linkedin.com/supernaoteam" target="_blank" aria-label="Linkedin">
-                    <img src="iconesito/linkedin-svgrepo-com.svg" alt="Linkedin" />
+                    <img src="iconesito/linkedin-svgrepo-com.svg" alt="Linkedin" class="social-icon" />
                 </a>
                 <a href="https://youtube.com/supernaoteam" target="_blank" aria-label="YouTube">
-                    <img src="iconesito/youtube-color-svgrepo-com.svg" alt="YouTube" />
+                    <img src="iconesito/youtube-color-svgrepo-com.svg" alt="YouTube" class="social-icon" />
+                </a>
+                <a href="mailto:contactsupernao@gmail.com" aria-label="Email">
+                    <img src="iconesito/email-svgrepo-com.svg" alt="Email" class="social-icon email-icon" />
+                    <img src="iconesito/email-open-svgrepo-com.svg" alt="Email Hover" class="social-icon email-hover-icon" />
                 </a>
             </div>
-        </div>
-
-        <!-- Contact Section -->
-        <div class="footer-section contact">
-            <h3>Contattaci</h3>
-            <a href="mailto:contactsupernao@gmail.com" class="contact-btn">Scrivici</a>
         </div>
 
         <!-- Sponsors Section -->
         <div class="footer-section sponsors">
-            <h3>Con il supporto di</h3>
+            <h3>CON IL SUPPORTO DI:</h3> <!-- Text is now all caps -->
             <div class="sponsor-logos">
-                <img src="sponsor logo/sapienza (1).png" alt="Sponsor 1" />
-                <img src="sponsor logo/Still 2025-06-02 174259_1.3.1.png" alt="Sponsor 2" />
-                <img src="sponsor logo/Still 2025-06-02 175737_1.4.1 (1).png" alt="Sponsor 3" />
-                <img src="sponsor logo/fairtilelogo.avif" alt="Sponsor 4" />
-                <!-- Aggiungi altri loghi sponsor -->
+                <img src="sponsor logo/Still 2025-06-02 174259_1.3.1.png" alt="IIS SALVINI" />
+                <img src="sponsor logo/nuvolari.svg" alt="NUVOLARI" /> <!-- Properly added Nuvolari SVG -->
+                <img src="sponsor logo/Still 2025-06-02 175737_1.4.1 (1).png" alt="HAPPY FAMILY" />
+                <img src="sponsor logo/fairtilelogo.avif" alt="FAIRTILE" />
+                <img src="sponsor logo/sapienza (1).png" alt="Sapienza University" />
             </div>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <span>&copy; 2025 SuperNAO Team. Tutti i diritti riservati.</span>
     </div>
 </footer>
 
 <style>
 .footer {
-    background: #000; /* Sfondo nero */
-    padding: 60px 20px; /* Più spazio per il footer */
-    color: #fff; /* Testo bianco */
+    background: rgb(1, 9, 28); /* Dark blue background */
+    padding: 60px 20px;
+    color: #fff;
     text-align: center;
 }
 
 .footer-inner {
     display: flex;
-    flex-direction: column; /* Sviluppo verticale */
+    flex-direction: column;
     align-items: center;
     gap: 40px;
 }
 
-.footer-section {
-    margin-bottom: 40px; /* Spazio tra le sezioni */
-}
-
 .footer-section h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
-    color: #FF4500; /* Colore arancione per i titoli */
+    font-size: 4.5rem; /* Bigger text */
+    color: #FF4500; /* Orange color for titles */
     margin-bottom: 20px;
 }
 
 .footer-social-links {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 50px; /* More horizontal space on desktop */
 }
 
-.footer-social-links a img {
-    width: 50px; /* Icone più grandi */
+.footer-social-links a img.social-icon {
+    width: 50px;
     height: 50px;
-    border-radius: 0%;
-    background: transparent; /* Sfondo trasparente */
-    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(0) invert(1); /* Make icons white */
+    transition: filter 0.3s ease;
 }
 
-.footer-social-links a img:hover {
-    transform: scale(1.2);
-    filter: drop-shadow(0 4px 8px rgba(255, 102, 0, 0.5)); /* Cambia forma della shadow */
+.footer-social-links a img.social-icon:hover {
+      filter: invert(49%) sepia(81%) saturate(745%) hue-rotate(347deg) brightness(95%) contrast(102%);
 }
 
-.footer-social-links a[aria-label="Instagram"] img:hover {
-    filter: drop-shadow(0 4px 8px rgba(255, 0, 0, 0.5)); /* Rosso per Instagram */
+.footer-social-links a .email-hover-icon {
+    display: none; /* Default hidden */
 }
 
-.footer-social-links a[aria-label="Linkedin"] img:hover {
-    filter: drop-shadow(0 4px 8px rgba(0, 102, 255, 0.5)); /* Blu per Linkedin */
+.footer-social-links a:hover .email-icon {
+    display: none; /* Hide default icon on hover */
 }
 
-.footer-social-links a[aria-label="YouTube"] img:hover {
-    filter: drop-shadow(0 4px 8px rgba(255, 0, 0, 0.5)); /* Rosso per YouTube */
-}
-
-.contact-btn {
-    display: inline-block;
-    padding: 15px 40px;
-    background-color: #FF4500; /* Colore arancione per il pulsante */
-    color: #fff;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.contact-btn:hover {
-    background-color: #FF6600;
-    transform: scale(1.05);
+.footer-social-links a:hover .email-hover-icon {
+    display: inline; /* Show hover icon */
 }
 
 .sponsor-logos {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap; /* Permette di adattarsi allo spazio disponibile */
+    gap: 40px; /* Proper spacing between logos */
+    align-items: center; /* Align logos on the same horizontal line */
+    flex-wrap: wrap; /* Wrap logos if necessary */
 }
 
 .sponsor-logos img {
-    max-width: 250px; /* Maximum width for logos */
-    max-height: 150px; /* Maximum height for logos */
-    width: auto; /* Automatically adjust width */
-    height: auto; /* Automatically adjust height */
-    object-fit: contain; /* Ensure the logo fits within the box without distortion */
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Add shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-}
-
-.sponsor-logos img:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    box-shadow: 0 6px 12px rgba(255, 102, 0, 0.5); /* Highlight shadow on hover */
-}
-
-.footer-bottom {
-    margin-top: 40px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    color: #FF4500; /* Colore arancione per il copyright */
-    border-top: 1px solid #FF4500;
-    padding-top: 20px;
+    max-width: 200px; /* Adjust logo size */
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: none; /* Remove shadow */
+    transition: none; /* Remove hover effects */
 }
 
 @media (max-width: 768px) {
-    .footer-social-links a img {
-        width: 40px;
+    .footer {
+        padding: 40px 15px; /* Reduce padding */
+        text-align: center;
+    }
+
+    .footer-section h3 {
+        font-size: 2.5rem; /* Smaller text for titles */
+        margin-bottom: 15px; /* Reduce spacing */
+    }
+
+    .footer-social-links {
+        gap: 30px; /* Reduce horizontal space between icons */
+    }
+
+    .footer-social-links a img.social-icon {
+        width: 40px; /* Smaller icons */
         height: 40px;
     }
 
-    .contact-btn {
-        font-size: 1rem;
-        padding: 10px 30px;
+    .sponsor-logos {
+        gap: 20px; /* Reduce spacing between logos */
     }
 
     .sponsor-logos img {
-        width: 80px;
+        max-width: 150px; /* Smaller logo size */
+        max-height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section h3 {
+        font-size: 2rem; /* Further reduce title size */
+    }
+
+    .footer-social-links {
+        gap: 20px; /* Further reduce spacing */
+    }
+
+    .footer-social-links a img.social-icon {
+        width: 35px; /* Smaller icons for very small screens */
+        height: 35px;
+    }
+
+    .sponsor-logos img {
+        max-width: 120px; /* Further reduce logo size */
+        max-height: 60px;
     }
 }
     </style>
