@@ -16,7 +16,7 @@
             min-height: 100vh;
         }
 
-        /* Navbar styles */
+        /* Updated Navbar styles */
         .navbar {
             position: fixed;
             top: 10%;
@@ -27,8 +27,8 @@
             justify-content: space-around;
             width: 282px;
             height: 84px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.36);
+            backdrop-filter: saturate(125%) blur(20px);
             border-radius: 42px;
             box-shadow: 0 5.66px 11.31px rgba(0, 0, 0, 0.2);
             z-index: 1000;
@@ -93,7 +93,7 @@
             margin-top: 120px;
             background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
             padding: 40px 20px;
-            border-radius: 20px;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -114,7 +114,7 @@
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             margin: 2rem;
-            border-radius: 20px;
+            border-radius: 10px;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
@@ -159,7 +159,7 @@
         .team-member {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
+            border-radius: 10px;
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -203,7 +203,7 @@
 
         .team-header h1 {
             color: #FF4500;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
         }
 
@@ -212,6 +212,96 @@
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 2rem;
+        }
+
+        /* Footer styles */
+        .footer {
+            background: #000;
+            padding: 60px 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .footer-section {
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: #FF4500;
+            margin-bottom: 20px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .footer-social-links a img {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .footer-social-links a img:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 4px 8px rgba(255, 102, 0, 0.5));
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #FF4500;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #FF6600;
+            transform: scale(1.05);
+        }
+
+        .sponsor-logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .sponsor-logos img {
+            max-width: 250px;
+            max-height: 150px;
+            object-fit: contain;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sponsor-logos img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(255, 102, 0, 0.5);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: #FF4500;
+            border-top: 1px solid #FF4500;
+            padding-top: 20px;
         }
 
         @media (max-width: 768px) {
@@ -239,6 +329,20 @@
             .team-header p {
                 font-size: 1rem;
             }
+
+            .footer-social-links a img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .contact-btn {
+                font-size: 1rem;
+                padding: 10px 30px;
+            }
+
+            .sponsor-logos img {
+                width: 80px;
+            }
         }
     </style>
 </head>
@@ -261,7 +365,7 @@
 
     <!-- Team Header Section -->
     <div class="team-header">
-        <h1>Team</h1>
+        <h1>IL NOSTRO SUPER-TEAM</h1>
         <p class="team-intro">Il nostro team è composto da studenti appassionati e dedicati, 
         ciascuno con competenze uniche che contribuiscono al successo di SuperNAO. 
         Siamo un gruppo eterogeneo di sviluppatori, designer e specialisti dei social media,
@@ -316,5 +420,46 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <!-- Social Section -->
+            <div class="footer-section social">
+                <h3>Seguici</h3>
+                <div class="footer-social-links">
+                    <a href="https://instagram.com/supernaoteam" target="_blank" aria-label="Instagram">
+                        <img src="iconesito/instagram-1-svgrepo-com.svg" alt="Instagram" />
+                    </a>
+                    <a href="https://linkedin.com/supernaoteam" target="_blank" aria-label="Linkedin">
+                        <img src="iconesito/linkedin-svgrepo-com.svg" alt="Linkedin" />
+                    </a>
+                    <a href="https://youtube.com/supernaoteam" target="_blank" aria-label="YouTube">
+                        <img src="iconesito/youtube-color-svgrepo-com.svg" alt="YouTube" />
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-section contact">
+                <h3>Contattaci</h3>
+                <a href="mailto:contactsupernao@gmail.com" class="contact-btn">Scrivici</a>
+            </div>
+
+            <!-- Sponsors Section -->
+            <div class="footer-section sponsors">
+                <h3>Con il supporto di</h3>
+                <div class="sponsor-logos">
+                    <img src="sponsor logo/sapienza (1).png" alt="Sponsor 1" />
+                    <img src="sponsor logo/Still 2025-06-02 174259_1.3.1.png" alt="Sponsor 2" />
+                    <img src="sponsor logo/Still 2025-06-02 175737_1.4.1 (1).png" alt="Sponsor 3" />
+                    <img src="sponsor logo/fairtilelogo.avif" alt="Sponsor 4" />
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 SuperNAO Team. Tutti i diritti riservati.</span>
+        </div>
+    </footer>
 </body>
 </html>

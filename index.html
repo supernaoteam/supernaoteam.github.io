@@ -193,10 +193,26 @@
             max-width: 180px;
             margin: 0 auto;
             padding: 8px;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgb(255, 255, 255);
             backdrop-filter: blur(10px);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .team .NAO{
+            position: relative; /* Ensure the text is positioned relative to the member container */
+            width: 100%;
+            max-width: 180px;
+            margin: 0 auto;
+            padding: 8px;
+            background: #d64b24;
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .team .h2{
+            fontsize: 2.5 rem;
         }
         .team img {
             width: 100%;
@@ -211,11 +227,11 @@
             margin: 0;
             font-size: 0.9rem;
             font-weight: bold; /* Make text bold */
-            color: #ff6600;
+            color: #d64b24;
             text-align: center; /* Center the text */
-            padding: 5px 10px; /* Add padding inside the rectangle */
+            padding: 5px 5px; /* Add padding inside the rectangle */
             box-sizing: border-box; /* Ensure padding doesn't affect the size */
-            background: rgba(255, 255, 255, 0.6); /* Match the box background */
+            background: rgb(255, 255, 255); /* Match the box background */
             border-radius: 10px; /* Ensure text stays within rounded corners */
         }
         .team button {
@@ -223,6 +239,7 @@
             padding: 10px 20px;
             background-color: var(--NAO);
             color: white;
+            background: #d64b24;
             border: none;
             border-radius: 10px;
             cursor: pointer;
@@ -283,7 +300,8 @@
             margin-top: 20px;
             padding: 12px 25px;
             background-color: var(--NAO);
-            color: rgb(255, 123, 0);
+            color: rgb(255, 255, 255);
+            background: #d64b24;
             text-decoration: none;
             border-radius: 10px;
             font-weight: 500;
@@ -787,7 +805,7 @@
 
     <!-- Team Section -->
     <div class="team">
-        <h2>Our Team</h2>
+        <h2>Il Nostro Team</h2>
         <div class="visible-members">
             <div class="member">
                 <img src="/fototeamwebp/Gabriele_V.webp" alt="Gabriele Delle Site">
@@ -819,7 +837,7 @@
                 <img src="/fototeamwebp/Leonardo_Vellella_V.webp" alt="Leonardo Vellella">
                 <p>Leonardo Vellella</p>
             </div>
-            <div class="member">
+            <div class="NAO">
                 <img src="/fototeamwebp/SuperNAO_V.webp" alt="SuperNAO">
                 <p>SuperNAO</p>
             </div>
