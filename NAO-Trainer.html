@@ -14,6 +14,34 @@
             box-sizing: border-box;
         }
 
+        /* Back button styles */
+        .back-button {
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.36);
+            backdrop-filter: saturate(125%) blur(20px);
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+
+        .back-button svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
         /* Navbar styles */
         .navbar {
             position: fixed;
@@ -86,6 +114,67 @@
             opacity: 1;
         }
 
+        /* Project hero section */
+        .project-hero {
+            width: 100%;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .project-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+        }
+
+        .project-title h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: white;
+        }
+
+        .project-title p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Project content */
+        .project-content {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+
+        .project-section {
+            margin-bottom: 60px;
+        }
+
+        .project-section h2 {
+            font-size: 2.5rem;
+            color: #FF4500;
+            margin-bottom: 30px;
+        }
+
+        .project-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
         /* Footer styles */
 .footer {
     background: rgb(1, 9, 28); /* Dark blue background */
@@ -156,6 +245,37 @@
 }
 
 @media (max-width: 768px) {
+    .back-button {
+        top: 20px;
+        left: 20px;
+        padding: 12px;
+    }
+
+    .project-hero {
+        height: 60vh;
+    }
+
+    .project-title {
+        padding: 20px;
+    }
+
+    .project-title h1 {
+        font-size: 2rem;
+    }
+
+    .project-content {
+        padding: 0 20px;
+        margin: 40px auto;
+    }
+
+    .project-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .project-section p {
+        font-size: 1rem;
+    }
+
     .footer {
         padding: 40px 15px; /* Reduce padding */
         text-align: center;
@@ -207,6 +327,13 @@
     </style>
 </head>
 <body>
+    <!-- Back Button -->
+    <a href="progetti.html" class="back-button">
+        <svg viewBox="0 0 24 24">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+    </a>
+
     <!-- Navbar Section -->
     <div class="navbar">
         <a href="progetti.html">
@@ -221,6 +348,36 @@
             <img src="iconesito/icon-team.png" alt="Logo 3">
             <div class="hover-rectangle">Team</div>
         </a>
+    </div>
+
+    <!-- Project Hero Section -->
+    <div class="project-hero">
+        <img src="/grafiche progetti/IMG_3006.webp" alt="SuperNAO Trainer">
+        <div class="project-title">
+            <h1>SuperNAO Trainer</h1>
+            <p>Un sistema avanzato per l'allenamento personalizzato</p>
+        </div>
+    </div>
+
+    <!-- Project Content -->
+    <div class="project-content">
+        <div class="project-section">
+            <h2>Il Progetto</h2>
+            <p>SuperNAO Trainer rappresenta una rivoluzione nel mondo del fitness, combinando la robotica avanzata con l'intelligenza artificiale per creare un'esperienza di allenamento personalizzata e coinvolgente. Il nostro team ha sviluppato un sistema che permette a NAO di fungere da personal trainer, guidando gli utenti attraverso sessioni di allenamento su misura.</p>
+            <p>Il robot è in grado di dimostrare gli esercizi, monitorare la corretta esecuzione dei movimenti e fornire feedback in tempo reale, garantendo un allenamento sicuro ed efficace. Grazie all'intelligenza artificiale, SuperNAO Trainer può adattare il programma di allenamento alle esigenze specifiche di ogni utente.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Caratteristiche Principali</h2>
+            <p>Il sistema integra diverse tecnologie all'avanguardia per offrire un'esperienza completa:</p>
+            <ul>
+                <li>Riconoscimento dei movimenti in tempo reale</li>
+                <li>Feedback vocale personalizzato</li>
+                <li>Programmi di allenamento adattivi</li>
+                <li>Monitoraggio dei progressi</li>
+                <li>Interazione naturale e coinvolgente</li>
+            </ul>
+        </div>
     </div>
 
     <!-- Footer Section -->

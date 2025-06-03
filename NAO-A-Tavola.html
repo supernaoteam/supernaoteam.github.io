@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SuperNAO - Team</title>
+    <link rel="icon" type="image/x-icon" href="iconesito/favicon.png" />
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Back button styles */
+        .back-button {
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.36);
+            backdrop-filter: saturate(125%) blur(20px);
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+
+        .back-button svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 282px;
+            height: 84px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 42px;
+            box-shadow: 0 5.66px 11.31px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            animation: navbarFadeIn 1s ease-out forwards;
+        }
+
+        @keyframes navbarFadeIn {
+            to {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .navbar img {
+            width: 56.57px;
+            height: 56.57px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .navbar img.middle {
+            width: 70.71px;
+            height: 70.71px;
+        }
+
+        .navbar img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Hover rectangle styles */
+        .navbar a {
+            position: relative;
+        }
+
+        .navbar a .hover-rectangle {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            width: 100px;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .navbar a:hover .hover-rectangle {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Project hero section */
+        .project-hero {
+            width: 100%;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .project-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+        }
+
+        .project-title h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: white;
+        }
+
+        .project-title p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Project content */
+        .project-content {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+
+        .project-section {
+            margin-bottom: 60px;
+        }
+
+        .project-section h2 {
+            font-size: 2.5rem;
+            color: #FF4500;
+            margin-bottom: 30px;
+        }
+
+        .project-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Footer styles */
+.footer {
+    background: rgb(1, 9, 28); /* Dark blue background */
+    padding: 60px 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.footer-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4.5rem; /* Bigger text */
+    color: #FF4500; /* Orange color for titles */
+    margin-bottom: 20px;
+}
+
+.footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* More horizontal space on desktop */
+}
+
+.footer-social-links a img.social-icon {
+    width: 50px;
+    height: 50px;
+    filter: brightness(0) invert(1); /* Make icons white */
+    transition: filter 0.3s ease;
+}
+
+.footer-social-links a img.social-icon:hover {
+      filter: invert(49%) sepia(81%) saturate(745%) hue-rotate(347deg) brightness(95%) contrast(102%);
+}
+
+.footer-social-links a .email-hover-icon {
+    display: none; /* Default hidden */
+}
+
+.footer-social-links a:hover .email-icon {
+    display: none; /* Hide default icon on hover */
+}
+
+.footer-social-links a:hover .email-hover-icon {
+    display: inline; /* Show hover icon */
+}
+
+.sponsor-logos {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Proper spacing between logos */
+    align-items: center; /* Align logos on the same horizontal line */
+    flex-wrap: wrap; /* Wrap logos if necessary */
+}
+
+.sponsor-logos img {
+    max-width: 200px; /* Adjust logo size */
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: none; /* Remove shadow */
+    transition: none; /* Remove hover effects */
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        top: 20px;
+        left: 20px;
+        padding: 12px;
+    }
+
+    .project-hero {
+        height: 60vh;
+    }
+
+    .project-title {
+        padding: 20px;
+    }
+
+    .project-title h1 {
+        font-size: 2rem;
+    }
+
+    .project-content {
+        padding: 0 20px;
+        margin: 40px auto;
+    }
+
+    .project-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .project-section p {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 40px 15px; /* Reduce padding */
+        text-align: center;
+    }
+
+    .footer-section h3 {
+        font-size: 2.5rem; /* Smaller text for titles */
+        margin-bottom: 15px; /* Reduce spacing */
+    }
+
+    .footer-social-links {
+        gap: 30px; /* Reduce horizontal space between icons */
+    }
+
+    .footer-social-links a img.social-icon {
+        width: 40px; /* Smaller icons */
+        height: 40px;
+    }
+
+    .sponsor-logos {
+        gap: 20px; /* Reduce spacing between logos */
+    }
+
+    .sponsor-logos img {
+        max-width: 150px; /* Smaller logo size */
+        max-height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section h3 {
+        font-size: 2rem; /* Further reduce title size */
+    }
+
+    .footer-social-links {
+        gap: 20px; /* Further reduce spacing */
+    }
+
+    .footer-social-links a img.social-icon {
+        width: 35px; /* Smaller icons for very small screens */
+        height: 35px;
+    }
+
+    .sponsor-logos img {
+        max-width: 120px; /* Further reduce logo size */
+        max-height: 60px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <a href="progetti.html" class="back-button">
+        <svg viewBox="0 0 24 24">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+    </a>
+
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <a href="progetti.html">
+            <img src="iconesito/icon-progetti.png" alt="Logo 1">
+            <div class="hover-rectangle">Progetti</div>
+        </a>
+        <a href="index.html">
+            <img src="iconesito/favicon.png" class="middle" alt="Logo 2">
+            <div class="hover-rectangle">Home</div>
+        </a>
+        <a href="team.html">
+            <img src="iconesito/icon-team.png" alt="Logo 3">
+            <div class="hover-rectangle">Team</div>
+        </a>
+    </div>
+
+    <!-- Project Hero Section -->
+    <div class="project-hero">
+        <img src="/grafiche progetti/IMG_3006.webp" alt="SuperNAO Trainer">
+        <div class="project-title">
+            <h1>SuperNAO Trainer</h1>
+            <p>Un sistema avanzato per l'allenamento personalizzato</p>
+        </div>
+    </div>
+
+    <!-- Project Content -->
+    <div class="project-content">
+        <div class="project-section">
+            <h2>Il Progetto</h2>
+            <p>SuperNAO Trainer rappresenta una rivoluzione nel mondo del fitness, combinando la robotica avanzata con l'intelligenza artificiale per creare un'esperienza di allenamento personalizzata e coinvolgente. Il nostro team ha sviluppato un sistema che permette a NAO di fungere da personal trainer, guidando gli utenti attraverso sessioni di allenamento su misura.</p>
+            <p>Il robot è in grado di dimostrare gli esercizi, monitorare la corretta esecuzione dei movimenti e fornire feedback in tempo reale, garantendo un allenamento sicuro ed efficace. Grazie all'intelligenza artificiale, SuperNAO Trainer può adattare il programma di allenamento alle esigenze specifiche di ogni utente.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Caratteristiche Principali</h2>
+            <p>Il sistema integra diverse tecnologie all'avanguardia per offrire un'esperienza completa:</p>
+            <ul>
+                <li>Riconoscimento dei movimenti in tempo reale</li>
+                <li>Feedback vocale personalizzato</li>
+                <li>Programmi di allenamento adattivi</li>
+                <li>Monitoraggio dei progressi</li>
+                <li>Interazione naturale e coinvolgente</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-inner">
+        <!-- Contatti Section -->
+        <div class="footer-section social">
+            <h3>CONTATTI</h3> <!-- Text is now all caps -->
+            <div class="footer-social-links">
+                <a href="https://instagram.com/supernaoteam" target="_blank" aria-label="Instagram">
+                    <img src="iconesito/instagram-svgrepo-com.svg" alt="Instagram" class="social-icon" />
+                </a>
+                <a href="https://linkedin.com/supernaoteam" target="_blank" aria-label="Linkedin">
+                    <img src="iconesito/linkedin-svgrepo-com.svg" alt="Linkedin" class="social-icon" />
+                </a>
+                <a href="https://youtube.com/supernaoteam" target="_blank" aria-label="YouTube">
+                    <img src="iconesito/youtube-color-svgrepo-com.svg" alt="YouTube" class="social-icon" />
+                </a>
+                <a href="mailto:contactsupernao@gmail.com" aria-label="Email">
+                    <img src="iconesito/email-svgrepo-com.svg" alt="Email" class="social-icon email-icon" />
+                    <img src="iconesito/email-open-svgrepo-com.svg" alt="Email Hover" class="social-icon email-hover-icon" />
+                </a>
+            </div>
+        </div>
+
+        <!-- Sponsors Section -->
+        <div class="footer-section sponsors">
+            <h3>CON IL SUPPORTO DI:</h3> <!-- Text is now all caps -->
+            <div class="sponsor-logos">
+                <img src="sponsor logo/Still 2025-06-02 174259_1.3.1.png" alt="IIS SALVINI" />
+                <img src="sponsor logo/nuvolari.svg" alt="NUVOLARI" /> <!-- Properly added Nuvolari SVG -->
+                <img src="sponsor logo/Still 2025-06-02 175737_1.4.1 (1).png" alt="HAPPY FAMILY" />
+                <img src="sponsor logo/fairtilelogo.avif" alt="FAIRTILE" />
+                <img src="sponsor logo/sapienza (1).png" alt="Sapienza University" />
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
