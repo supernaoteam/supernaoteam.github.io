@@ -42,7 +42,7 @@
             width: 100%;
             height: auto;
             overflow: hidden;
-            background: white;
+            background: #d64b24;
         }
         .hero video {
             width: 100%;
@@ -1201,106 +1201,63 @@
     .final-section {
         flex-direction: column-reverse; /* Video first, then text */
         padding: 20px;
-        gap: 30px;
+        gap: 25px;
+        margin-bottom: 50px;
     }
 
     .final-section .text {
         width: 100%;
         padding: 20px;
-        text-align: center;
+        text-align: left;
+    }
+
+    .final-section .text h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .final-section .text h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .final-section .text p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
     }
 
     .final-section .video-container {
         width: 100%;
-        padding-top: 56.25%; /* 16:9 aspect ratio */
-        margin-bottom: 20px;
+        padding-top: 56.25%;
+        margin-bottom: 0;
     }
 
-    /* Team section improvements */
-    .team-section {
-        padding: 20px 10px;
-    }
-
-    .team-card {
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto 20px;
-    }
-
-    .photo-container {
-        height: 280px; /* Slightly smaller height on mobile */
-    }
-
-    /* Combined section improvements */
-    .combined-section {
-        padding: 40px 20px;
-    }
-
-    .combined-section .content {
-        margin-bottom: 30px;
-    }
-
-    .combined-section .text {
-        text-align: center;
-        padding: 25px;
-    }
-
-    /* Learn more button improvements */
     .learn-more {
-        display: inline-block;
-        width: auto;
-        min-width: 200px;
-        padding: 12px 30px;
-        margin: 20px auto 0;
+        display: block;
         text-align: center;
-        background: #FF4500;
-        color: white;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    .learn-more:hover {
-        background: #FF6600;
-        transform: translateY(-2px);
-    }
-
-    /* Dialog improvements */
-    .dialog-box {
-        bottom: 130px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 85%;
-        max-width: 350px;
+        padding: 12px 25px;
+        font-size: 1rem;
+        margin-top: 20px;
     }
 }
 
-/* Additional breakpoint for extra small devices */
-@media (max-width: 360px) {
-    .hero-text h1 {
-        font-size: 3rem;
+@media (max-width: 480px) {
+    .final-section {
+        padding: 15px;
+        gap: 20px;
     }
 
-    .hero-text h2 {
+    .final-section .text h1 {
+        font-size: 1.8rem;
+    }
+
+    .final-section .text h3 {
         font-size: 1.2rem;
     }
 
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .team-card {
-        max-width: 260px;
-    }
-
-    .photo-container {
-        height: 240px;
-    }
-
-    .floating-icon {
-        width: 80px;
-        height: 80px;
+    .final-section .text p {
+        font-size: 0.95rem;
     }
 }
     </style>
@@ -1386,7 +1343,7 @@
             </div>
             <div class="name-pill">
                 <div class="team-name">Gabriele <span class="highlight">Delle Site</span></div>
-                <div class="team-role">Team Leader</div>
+                <div class="team-role">Lead Developer</div>
             </div>
         </div>
 
@@ -1397,7 +1354,7 @@
             </div>
             <div class="name-pill">
                 <div class="team-name">Filippo <span class="highlight">Labate</span></div>
-                <div class="team-role">PR Manager</div>
+                <div class="team-role">Social Media Manager</div>
             </div>
         </div>
 
@@ -1408,7 +1365,7 @@
             </div>
             <div class="name-pill">
                 <div class="team-name">Ching Hoi <span class="highlight">Wong</span></div>
-                <div class="team-role">Developer</div>
+                <div class="team-role">Content Creator</div>
             </div>
         </div>
 
@@ -1419,7 +1376,7 @@
             </div>
             <div class="name-pill">
                 <div class="team-name">Niccolò <span class="highlight">Lucidi</span></div>
-                <div class="team-role">Developer</div>
+                <div class="team-role">Grafico</div>
             </div>
         </div>
     </div>
@@ -1444,7 +1401,7 @@
             </div>
             <div class="name-pill">
                 <div class="team-name">Marco <span class="highlight">Zorn</span></div>
-                <div class="team-role">Developer</div>
+                <div class="team-role">Web Developer</div>
             </div>
         </div>
 
@@ -1466,7 +1423,7 @@
             </div>
             <div class="name-pill">
                 <div class="team-name">Super<span class="highlight">NAO</span></div>
-                <div class="team-role">Robot Assistant</div>
+                <div class="team-role">Assistente Robot</div>
             </div>
         </div>
     </div>
@@ -1486,6 +1443,130 @@
             <iframe src="https://www.youtube.com/embed/ep9E2Q-0SEo" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
+
+    <style>
+    /* Final section improvements */
+    .final-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 60px;
+        gap: 40px;
+        margin-bottom: 100px;
+        background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
+    }
+
+    .final-section .text {
+        width: 50%;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+    }
+
+    .final-section .video-container {
+        width: 50%;
+        position: relative;
+        padding-top: 28.125%;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .final-section iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Learn more button styles for both desktop and mobile */
+    .learn-more {
+        display: inline-block;
+        padding: 15px 30px;
+        margin-top: 25px;
+        background: #FF4500;
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 69, 0, 0.2);
+    }
+
+    .learn-more:hover {
+        background: #FF6600;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 69, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+        .final-section {
+            flex-direction: column-reverse;
+            padding: 20px;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .final-section .text {
+            width: 100%;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .final-section .text h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .final-section .text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .final-section .text p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .final-section .video-container {
+            width: 100%;
+            padding-top: 56.25%;
+            margin-bottom: 0;
+        }
+
+        .learn-more {
+            display: block;
+            text-align: center;
+            padding: 12px 25px;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .final-section {
+            padding: 15px;
+            gap: 20px;
+        }
+
+        .final-section .text h1 {
+            font-size: 1.8rem;
+        }
+
+        .final-section .text h3 {
+            font-size: 1.2rem;
+        }
+
+        .final-section .text p {
+            font-size: 0.95rem;
+        }
+    }
+    </style>
 
     <!-- Circular Icon and Dialog -->
     <div class="floating-icon">

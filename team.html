@@ -88,131 +88,115 @@
             opacity: 1;
         }
 
-        /* Enhanced team section styles */
+        /* Remove old team section styles */
         .team-section {
-            margin-top: 120px;
-            background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
+            max-width: 1200px;
+            margin: 120px auto 0;
             padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            color: #d64b24;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .team-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            padding: 0 20px;
+        }
+
+        .team-description strong {
+            color: #d64b24;
+            font-weight: 600;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            justify-items: center;
+            width: 100%;
         }
 
-        .team-scroll {
-            display: flex;
-            height: 100vh;
-            position: sticky;
-            top: 0;
+        .team-card {
+            position: relative;
+            width: 260px;
+            margin-bottom: 20px;
+        }
+
+        .photo-container {
+            background: #f0f0f0;
+            border-radius: 20px;
+            width: 100%;
+            height: 320px;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            margin: 2rem;
-            border-radius: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .team-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .team-info {
-            width: 40%;
-            padding: 3rem;
-            opacity: 0;
-            transition: all 0.5s;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .team-info h2 {
-            color: #FF4500;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .team-info p {
-            color: #333;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .team-strip {
-            width: 60%;
-            display: flex;
-            gap: 2rem;
-            padding: 2rem;
-            transform: translateX(0);
-            transition: transform 0.5s;
-        }
-
-        .team-member {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 15px 35px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .team-member:hover {
+        .team-card:hover .photo-container {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2), 0 20px 45px rgba(0, 0, 0, 0.15);
         }
 
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+        .photo-container img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            margin-bottom: 1rem;
-            border: 4px solid #FF4500;
+            transition: transform 0.3s ease;
         }
 
-        .team-member h3 {
-            color: #FF4500;
-            margin: 0.5rem 0;
+        .team-card:hover .photo-container img {
+            transform: scale(1.05);
         }
 
-        .team-member p {
-            color: #333;
-            font-size: 0.9rem;
-        }
-
-        /* Team header styles */
-        .team-header {
+        .name-pill {
+            background: white;
+            border-radius: 20px;
+            padding: 15px 25px;
             text-align: center;
-            padding: 120px 20px 40px;
-            max-width: 800px;
-            margin: 0 auto;
-            border-bottom: 2px solid rgba(255, 69, 0, 0.2);
-            margin-bottom: 40px;
-            padding-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1;
+            margin-top: -5px;
+            margin-left: 15px;
+            margin-right: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .team-header h1 {
-            color: #FF4500;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        .team-card:hover .name-pill {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .team-header p {
-            color: #333;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .team-name .highlight {
+            color: #d64b24;
+        }
+
+        .team-role {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Footer styles */
@@ -367,60 +351,94 @@
         </a>
     </div>
 
-    <!-- Team Header Section -->
-    <div class="team-header">
-        <h1>IL NOSTRO SUPER-TEAM</h1>
-        <p class="team-intro">Il nostro team è composto da studenti appassionati e dedicati, 
-        ciascuno con competenze uniche che contribuiscono al successo di SuperNAO. 
-        Siamo un gruppo eterogeneo di sviluppatori, designer e specialisti dei social media,
-        uniti dalla passione per la tecnologia e l'innovazione.
-        </p>
-    </div>
-
     <!-- Team Section -->
     <section class="team-section">
-        <!-- Initial full team view -->
-        <div class="team-grid" id="teamGrid">
-            <!-- Team members will be populated manually -->
-            <div class="team-member">
-                <img src="fototeamwebp/Gabriele_V.webp" alt="Gabriele Delle Site">
-                <h3>Gabriele Delle Site</h3>
-                <p>Lead developer</p>
+        <h2 class="section-title">IL NOSTRO SUPER-TEAM</h2>
+        <p class="team-description">
+            Il nostro team è composto da <strong>studenti appassionati e dedicati</strong>, 
+            ciascuno con competenze uniche che contribuiscono al successo di SuperNAO. 
+            Siamo un gruppo eterogeneo di <strong>sviluppatori, designer e specialisti dei social media</strong>,
+            uniti dalla passione per la tecnologia e l'innovazione.
+        </p>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="photo-container">
+                    <img src="/fototeamwebp/Gabriele_V.webp" alt="Gabriele Delle Site">
+                </div>
+                <div class="name-pill">
+                    <div class="team-name">Gabriele <span class="highlight">Delle Site</span></div>
+                    <div class="team-role">Team Leader</div>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="fototeamwebp/Leonardo_Vellella_V.webp" alt="Leonardo Vellella">
-                <h3>Leonardo Vellella</h3>
-                <p>Developer</p>
+
+            <div class="team-card">
+                <div class="photo-container">
+                    <img src="/fototeamwebp/Leonardo_Vellella_V.webp" alt="Leonardo Vellella">
+                </div>
+                <div class="name-pill">
+                    <div class="team-name">Leonardo <span class="highlight">Vellella</span></div>
+                    <div class="team-role">Developer</div>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="fototeamwebp/Marco_Zorn_V.webp" alt="Marco Zorn">
-                <h3>Marco Zorn</h3>
-                <p>Web Developer</p>
+
+            <div class="team-card">
+                <div class="photo-container">
+                    <img src="/fototeamwebp/Marco_Zorn_V.webp" alt="Marco Zorn">
+                </div>
+                <div class="name-pill">
+                    <div class="team-name">Marco <span class="highlight">Zorn</span></div>
+                    <div class="team-role">Developer</div>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="fototeamwebp/Niccolo_Lucidi_V.webp" alt="Niccolò Lucidi">
-                <h3>Niccolò Lucidi</h3>
-                <p>Grafico Web</p>
+
+            <div class="team-card">
+                <div class="photo-container">
+                    <img src="/fototeamwebp/Niccolo_Lucidi_V.webp" alt="Niccolò Lucidi">
+                </div>
+                <div class="name-pill">
+                    <div class="team-name">Niccolò <span class="highlight">Lucidi</span></div>
+                    <div class="team-role">Grafico Web</div>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="fototeamwebp/Filippo_Labate_V.webp" alt="Filippo Labate">
-                <h3>Filippo Labate</h3>
-                <p>Social Media Manager</p>
+
+            <div class="team-card">
+                <div class="photo-container">
+                    <img src="/fototeamwebp/Filippo_Labate_V.webp" alt="Filippo Labate">
+                </div>
+                <div class="name-pill">
+                    <div class="team-name">Filippo <span class="highlight">Labate</span></div>
+                    <div class="team-role">PR Manager</div>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="fototeamwebp/Ching_Hoi_V.webp" alt="Ching Hoi Wong">
-                <h3>Ching Hoi Wong</h3>
-                <p>Content Creator</p>
+
+            <div class="team-card">
+                <div class="photo-container">
+                    <img src="/fototeamwebp/Ching_Hoi_V.webp" alt="Ching Hoi Wong">
+                </div>
+                <div class="name-pill">
+                    <div class="team-name">Ching Hoi <span class="highlight">Wong</span></div>
+                    <div class="team-role">Developer</div>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="fototeamwebp/Virginia_D_Andrea_V.webp" alt="Virginia D'Andrea">
-                <h3>Virginia D'Andrea</h3>
-                <p>Social Media Specialist</p>
+
+            <div class="team-card">
+                <div class="photo-container">
+                    <img src="/fototeamwebp/Virginia_D_Andrea_V.webp" alt="Virginia D'Andrea">
+                </div>
+                <div class="name-pill">
+                    <div class="team-name">Virginia <span class="highlight">D'Andrea</span></div>
+                    <div class="team-role">Designer</div>
+                </div>
             </div>
-                <div class="team-member">
-                <img src="fototeamwebp/SuperNAO_V.webp" alt="SuperNAO">
-                <h3>SuperNAO</h3>
-                <p>Super robot assistente<p>
+
+            <div class="team-card">
+                <div class="photo-container">
+                    <img src="/fototeamwebp/SuperNAO_V.webp" alt="SuperNAO">
+                </div>
+                <div class="name-pill">
+                    <div class="team-name">Super<span class="highlight">NAO</span></div>
+                    <div class="team-role">Robot Assistant</div>
+                </div>
             </div>
         </div>
     </section>
