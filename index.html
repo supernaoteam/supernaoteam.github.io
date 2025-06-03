@@ -17,7 +17,7 @@
             margin: 0;
             padding: 0;
             background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 55%, hsla(24, 100%, 50%, 1) 100%);
-        }
+            }
         @media (max-width: 768px) {
             body {
                 background: linear-gradient(to bottom, white 55%, #ff6600 100%);
@@ -27,6 +27,7 @@
             color: #FF4500;
             font-family: 'Poppins', sans-serif;
         }
+
         p {
             color: #333;
             font-size: 1.1rem;
@@ -71,7 +72,7 @@
             cursor: pointer;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
-            border-radius: 50%;
+            border-radius: 10px;
             padding: 10px;
             transition: all 0.3s ease;
             animation: bounce 1.5s infinite;
@@ -161,6 +162,16 @@
             }
         }
 
+        /* Combined Section Text Hover Effect */
+.combined-section .text {
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition for hover and de-hover */
+}
+
+.combined-section .text:hover {
+    transform: scale(1.05); /* Slightly enlarge the block */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+}
+
         /* Team section styles */
         .team {
             text-align: center;
@@ -177,27 +188,35 @@
             margin: 0 auto;
         }
         .team .member {
-            position: relative;
+            position: relative; /* Ensure the text is positioned relative to the member container */
             width: 100%;
             max-width: 180px;
             margin: 0 auto;
             padding: 8px;
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .team img {
             width: 100%;
             height: auto;
-            border-radius: 12px;
+            border-radius: 10px;
         }
         .team p {
-            margin: 8px 0 0;
+            position: absolute; /* Position the text absolutely within the member container */
+            bottom: 10px; /* Move the text to the bottom of the container */
+            left: 50%; /* Center the text horizontally */
+            transform: translateX(-50%); /* Adjust for centering */
+            margin: 0;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: bold; /* Make text bold */
             color: #ff6600;
-            position: center;
+            text-align: center; /* Center the text */
+            padding: 5px 10px; /* Add padding inside the rectangle */
+            box-sizing: border-box; /* Ensure padding doesn't affect the size */
+            background: rgba(255, 255, 255, 0.6); /* Match the box background */
+            border-radius: 10px; /* Ensure text stays within rounded corners */
         }
         .team button {
             margin-top: 20px;
@@ -205,7 +224,7 @@
             background-color: var(--NAO);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 1rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -266,7 +285,7 @@
             background-color: var(--NAO);
             color: rgb(255, 123, 0);
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 500;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -378,16 +397,18 @@
             left: 50%;
             transform: translate(-50%, -50%) scale(0); /* Start scaled down */
             display: flex;
-            align-items: center;
+            align-items: center; /* Vertically center elements */
             justify-content: space-around;
             width: 282px; /* Scale width by sqrt(2) */
             height: 84px; /* Scale height by sqrt(2) */
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.36);
+            backdrop-filter: blur(20px);
             border-radius: 42px; /* Scale border radius by sqrt(2) */
             box-shadow: 0 5.66px 11.31px rgba(0, 0, 0, 0.2); /* Adjust shadow for new size */
             z-index: 1000;
             animation: navbarFadeIn 1s ease-out forwards; /* Fade-in animation */
+            -webkit-backdrop-filter: saturate(125%) blur(20px); /* For Safari compatibility */
+            backdrop-filter: saturate(125%) blur(20px); /* For modern browsers */
         }
         @keyframes navbarFadeIn {
             to {
@@ -400,6 +421,7 @@
             transition: transform 0.3s ease;
             cursor: pointer;
             position: relative;
+            display: block; /* Ensure images are block-level for alignment */
         }
         .navbar img.middle {
             width: 70.71px; /* Scale width by sqrt(2) */
@@ -447,7 +469,7 @@
             padding: 10px;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
+            border-radius: 10px;
             text-align: center;
             font-family: 'Roboto', sans-serif;
             font-size: 1rem;
@@ -508,7 +530,7 @@
             background-color: rgb(255, 94, 0);
             color: black;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 20px; /* Rounded corners for a speech bubble look */
+            border-radius: 10px; /* Rounded corners for a speech bubble look */
             padding: 20px;
             display: none;
             z-index: 1001;
@@ -520,7 +542,6 @@
             font-family: 'Roboto', sans-serif;
             font-size: 1rem;
             line-height: 1.6;
-            padding-right: 40px; /* Add space for the close button */
         }
 
         .dialog-content p {
@@ -531,20 +552,24 @@
 
         /* Close Button */
         .close-dialog {
-            position: absolute;
-            bottom: 10px; /* Move to the bottom */
-            right: 10px; /* Align to the right */
-            font-size: 1.2rem;
+            position: relative; /* Position within the dialog content */
+            display: inline-block; /* Make it fit its content */
+            width: 30px; /* Set width for a square */
+            height: 30px; /* Set height for a square */
+            font-size: 1.2rem; /* Adjust font size */
             font-weight: bold;
             color: rgb(255, 255, 255);
-            cursor: pointer;            border-radius: 50%; /* Circular button */
-            padding: 5px;
+            cursor: pointer;
+            border-radius: 50%; /* Make it circular */
+            background: rgba(255, 255, 255, 0.4); /* Background color */
+            text-align: center; /* Center the text */
+            line-height: 30px; /* Vertically center the "X" */
             transition: background 0.3s ease, transform 0.3s ease;
         }
 
         .close-dialog:hover {
-            background: rgba(255, 255, 255, 0.4); /* Slightly brighter on hover */
-            transform: scale(1.2); /* Enlarge on hover */
+            background: rgba(255, 255, 255, 0.6); /* Slightly brighter on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
         }
 
         @media (max-width: 768px) {
@@ -567,7 +592,7 @@
                 width: 90%; /* Use most of the screen width */
                 max-width: 400px; /* Limit the width */
                 padding: 15px; /* Reduce padding */
-                border-radius: 15px; /* Slightly smaller rounded corners */
+                border-radius: 10px; /* Slightly smaller rounded corners */
             }
 
             .dialog-content {
@@ -699,8 +724,8 @@
 
     <!-- Hero Section -->
     <div class="hero">
-        <video id="hero-video" muted>
-            <source src="naovola.mp4" type="video/mp4">
+        <video id="hero-video" muted autoplay loop>
+            <source src="loop.mp4" type="video/mp4">
         </video>
         <div class="hero-text">
             <h1>SuperNAO</h1>
@@ -714,7 +739,8 @@
     </div>
     <script>
         function scrollToContent() {
-            document.querySelector('.section').scrollIntoView({ behavior: 'smooth' });
+            const nextSection = document.querySelector('.combined-section'); // Target the next section
+            nextSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scrolling
         }
     </script>
 
@@ -836,55 +862,12 @@
     </div>
     <div class="dialog-box" id="dialog-box">
         <div class="dialog-content">
-            <span class="close-dialog" onclick="toggleDialog()">×</span>
             <p>Ciao! Sono NAO, un robot umanoide con intelligenza artificiale, progettato per interagire e imparare. Il mio scopo è ispirare gli studenti e rendere l'apprendimento coinvolgente. Con capacità di riconoscimento vocale e di movimento, collaboro in modo naturale adattandomi alle esigenze di chi mi circonda. Ogni giorno esploro nuove sfide, contribuendo a creare un futuro dove tecnologia e umanità migliorano la vita delle persone. Insieme, possiamo trasformare idee in realtà con curiosità e creatività!</p>
+            <span class="close-dialog" onclick="toggleDialog()">×</span> <!-- Positioned after the text -->
         </div>
     </div>
 
     <script>
-    const video = document.getElementById('hero-video');
-    let targetTime = 0;
-
-    const updateTargetTime = () => {
-        const fullScroll = document.body.scrollHeight - window.innerHeight;
-        // Check if we're on mobile
-        const isMobile = window.innerWidth <= 768;
-        // Use different scroll fraction for mobile
-        const effectiveMaxScroll = fullScroll * (isMobile ? 0.5 : 0.75);
-        const clampedScroll = Math.min(window.scrollY, effectiveMaxScroll);
-        const scrollFraction = clampedScroll / effectiveMaxScroll;
-
-        targetTime = scrollFraction * video.duration;
-    };
-
-    const smoothUpdate = () => {
-        if (!isNaN(video.duration)) {
-            // Use a lower easing factor for smoother animation on mobile
-            const isMobile = window.innerWidth <= 768;
-            const easingFactor = isMobile ? 0.2 : 0.3; // Reduced easing factor for mobile
-            video.currentTime += (targetTime - video.currentTime) * easingFactor;
-        }
-        requestAnimationFrame(smoothUpdate);
-    };
-
-    let lastUpdate = 0;
-    const throttleUpdateTargetTime = () => {
-        const now = Date.now();
-        if (now - lastUpdate > 50) { // Throttle updates to every 50ms
-            updateTargetTime();
-            lastUpdate = now;
-        }
-    };
-
-    window.addEventListener('scroll', throttleUpdateTargetTime, { passive: true });
-    document.addEventListener('touchmove', throttleUpdateTargetTime, { passive: true });
-
-    video.addEventListener('loadedmetadata', () => {
-        video.pause();             // Prevent autoplay
-        updateTargetTime();        // Initialize
-        requestAnimationFrame(smoothUpdate); // Start animation loop
-    });
-
     function toggleDialog() {
         const dialogBox = document.getElementById('dialog-box');
         if (dialogBox.style.display === 'none' || dialogBox.style.display === '') {
@@ -894,5 +877,170 @@
         }
     }
     </script>
-</body>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <!-- Social Section -->
+        <div class="footer-section social">
+            <h3>Seguici</h3>
+            <div class="footer-social-links">
+                <a href="https://instagram.com/supernaoteam" target="_blank" aria-label="Instagram">
+                    <img src="iconesito/instagram-1-svgrepo-com.svg" alt="Instagram" />
+                </a>
+                <a href="https://linkedin.com/supernaoteam" target="_blank" aria-label="Linkedin">
+                    <img src="iconesito/linkedin-svgrepo-com.svg" alt="Linkedin" />
+                </a>
+                <a href="https://youtube.com/supernaoteam" target="_blank" aria-label="YouTube">
+                    <img src="iconesito/youtube-color-svgrepo-com.svg" alt="YouTube" />
+                </a>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-section contact">
+            <h3>Contattaci</h3>
+            <a href="mailto:contactsupernao@gmail.com" class="contact-btn">Scrivici</a>
+        </div>
+
+        <!-- Sponsors Section -->
+        <div class="footer-section sponsors">
+            <h3>Con il supporto di</h3>
+            <div class="sponsor-logos">
+                <img src="sponsor logo/sapienza (1).png" alt="Sponsor 1" />
+                <img src="sponsor logo/Still 2025-06-02 174259_1.3.1.png" alt="Sponsor 2" />
+                <img src="sponsor logo/Still 2025-06-02 175737_1.4.1 (1).png" alt="Sponsor 3" />
+                <img src="sponsor logo/fairtilelogo.avif" alt="Sponsor 4" />
+                <!-- Aggiungi altri loghi sponsor -->
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2025 SuperNAO Team. Tutti i diritti riservati.</span>
+    </div>
+</footer>
+
+<style>
+.footer {
+    background: #000; /* Sfondo nero */
+    padding: 60px 20px; /* Più spazio per il footer */
+    color: #fff; /* Testo bianco */
+    text-align: center;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column; /* Sviluppo verticale */
+    align-items: center;
+    gap: 40px;
+}
+
+.footer-section {
+    margin-bottom: 40px; /* Spazio tra le sezioni */
+}
+
+.footer-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #FF4500; /* Colore arancione per i titoli */
+    margin-bottom: 20px;
+}
+
+.footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-social-links a img {
+    width: 50px; /* Icone più grandi */
+    height: 50px;
+    border-radius: 0%;
+    background: transparent; /* Sfondo trasparente */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-social-links a img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 4px 8px rgba(255, 102, 0, 0.5)); /* Cambia forma della shadow */
+}
+
+.footer-social-links a[aria-label="Instagram"] img:hover {
+    filter: drop-shadow(0 4px 8px rgba(255, 0, 0, 0.5)); /* Rosso per Instagram */
+}
+
+.footer-social-links a[aria-label="Linkedin"] img:hover {
+    filter: drop-shadow(0 4px 8px rgba(0, 102, 255, 0.5)); /* Blu per Linkedin */
+}
+
+.footer-social-links a[aria-label="YouTube"] img:hover {
+    filter: drop-shadow(0 4px 8px rgba(255, 0, 0, 0.5)); /* Rosso per YouTube */
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #FF4500; /* Colore arancione per il pulsante */
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #FF6600;
+    transform: scale(1.05);
+}
+
+.sponsor-logos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Permette di adattarsi allo spazio disponibile */
+}
+
+.sponsor-logos img {
+    max-width: 250px; /* Maximum width for logos */
+    max-height: 150px; /* Maximum height for logos */
+    width: auto; /* Automatically adjust width */
+    height: auto; /* Automatically adjust height */
+    object-fit: contain; /* Ensure the logo fits within the box without distortion */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Add shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.sponsor-logos img:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 12px rgba(255, 102, 0, 0.5); /* Highlight shadow on hover */
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #FF4500; /* Colore arancione per il copyright */
+    border-top: 1px solid #FF4500;
+    padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-social-links a img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .contact-btn {
+        font-size: 1rem;
+        padding: 10px 30px;
+    }
+
+    .sponsor-logos img {
+        width: 80px;
+    }
+}
+    </style>
+    </body>
 </html>
