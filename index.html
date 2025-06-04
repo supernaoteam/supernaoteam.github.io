@@ -309,19 +309,33 @@
             background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
         }
         .final-section .text {
-            width: 50%;
-            padding: 30px;
+            width: 720px;
+            min-width: unset;
+            max-width: unset;
+            padding: 40px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background: rgb(255, 255, 255);
-            border-radius: 10px;
+            border-radius: 30px;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center content vertically */
+            justify-content: center;
+            align-items: center; /* Center content inside each text box */
+            margin-bottom: 10px;
         }
         .final-section .video-container {
-            width: 50%;
+            width: 480px;
+            height: 120px;
+            min-width: unset;
+            max-width: unset;
+            aspect-ratio: unset;
             position: relative;
-            padding-top: 28.125%; /* 16:9 aspect ratio (50% * 9/16 = 28.125%) */
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .final-section iframe {
             position: absolute;
@@ -329,8 +343,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: none;
+            display: block;
+            border-radius: 30px;
         }
 
         /* Update the mobile styles for final section */
@@ -1217,26 +1232,26 @@
         text-align: left;
     }
 
-    .final-section .text h1 {
-        font-size: 2rem;
-        margin-bottom: 15px;
-    }
-
-    .final-section .text h3 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-    }
-
-    .final-section .text p {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-
     .final-section .video-container {
         width: 100%;
         padding-top: 56.25%;
         margin-bottom: 0;
+    }
+
+    .final-section h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .final-section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .final-section p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
     }
 
     .learn-more {
@@ -1293,6 +1308,12 @@
     color: #01345a;
     font-size: 2rem;
     font-weight: 500;
+}
+        * {
+    border-radius: 30px !important;
+}
+.navbar {
+    border-radius: 42px !important;
 }
     </style>
 </head>
@@ -1357,15 +1378,27 @@
 
     <!-- Final Section -->
     <div class="final-section">
-        <div class="text">
-            <h1>Il nostro ultimo progetto</h1>
-            <h3>Dove la Robotica incontra lo Sport: SuperNAO Trainer</h3>
-            <p>Il nostro team ha lavorato duramente per sviluppare un sistema avanzato per trasformare il nostro umanoide, NAO, in un super-allenatore per potenziare, migliorare e diversificare l'attività sportiva. In questo video, vi mostriamo il nostro progetto per integrare la robotica umanoide all'interno del settore dello sport.</p>
-            <a href="progetti.html" class="learn-more">Scopri di più</a>
-        </div>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/ep9E2Q-0SEo" frameborder="0" allowfullscreen></iframe>
         </div>
+        <div class="text-column">
+            <div class="text">
+                <h1>Il nostro ultimo progetto</h1>
+                <h3>Dove la Robotica incontra lo Sport: SuperNAO Trainer</h3>
+                <p>Il nostro team ha lavorato duramente per sviluppare un sistema avanzato per trasformare il nostro umanoide, NAO, in un super-allenatore per potenziare, migliorare e diversificare l'attività sportiva. In questo video, vi mostriamo il nostro progetto per integrare la robotica umanoide all'interno del settore dello sport.</p>
+            </div>
+            <div class="text">
+                <h1>Innovazione e Collaborazione</h1>
+                <h3>Un Team, Tante Competenze</h3>
+                <p>Abbiamo unito le nostre competenze in programmazione, elettronica e comunicazione per creare soluzioni innovative. La collaborazione è stata la chiave per superare ogni sfida e raggiungere risultati straordinari.</p>
+            </div>
+            <div class="text">
+                <h1>Guardando al Futuro</h1>
+                <h3>La Robotica per Tutti</h3>
+                <p>Il nostro obiettivo è rendere la robotica accessibile e utile per tutti, portando NAO in nuovi contesti e continuando a imparare insieme. Siamo pronti a nuove sfide!</p>
+            </div>
+        </div>
+        <a href="progetti.html" class="learn-more">Scopri di più</a>
     </div>
 
     <!-- Team Section -->
@@ -1490,56 +1523,91 @@
     /* Final section improvements */
     .final-section {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        padding: 60px;
-        gap: 40px;
+        justify-content: flex-start;
+        padding: 30px;
+        gap: 10px;
         margin-bottom: 100px;
         background: white;
-    }
-
-    .final-section .text {
-        width: 50%;
-        padding: 30px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background: rgb(255, 255, 255);
-        border-radius: 10px;
+        border-radius: 30px;
     }
 
     .final-section .video-container {
-        width: 50%;
+        width: 720px;
+        height: 405px;
+        min-width: unset;
+        max-width: unset;
+        aspect-ratio: unset;
         position: relative;
-        padding-top: 28.125%;
-        border-radius: 10px;
+        border-radius: 30px;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
+        margin-left: 0;
     }
 
-    .final-section iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
+    .final-section .video-container iframe {
         width: 100%;
         height: 100%;
         border: none;
+        display: block;
+        border-radius: 30px;
     }
 
-    /* Learn more button styles for both desktop and mobile */
-    .learn-more {
-        display: inline-block;
+    .final-section .text-column {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        width: 100%;
+        gap: 30px;
+        border-radius: 30px;
+        margin-top: 30px;
+    }
+
+    .final-section .text {
+        width: 350px;
+        min-width: unset;
+        max-width: unset;
+        padding: 40px 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: rgb(255, 255, 255);
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+    }
+    .final-section .text:not(:last-child) {
+        margin-bottom: 0;
+    }
+    .final-section .text:last-child {
+        margin-bottom: 0;
+    }
+
+    .final-section .learn-more {
+        display: block;
+        margin: 40px auto 0 auto;
         padding: 15px 30px;
-        margin-top: 25px;
         background: #FF4500;
         color: white;
         text-decoration: none;
-        border-radius: 25px;
+        border-radius: 30px;
         font-weight: 500;
         font-size: 1.1rem;
         transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 4px 15px rgba(255, 69, 0, 0.2);
+        text-align: center;
+        align-self: center;
     }
 
-    .learn-more:hover {
+    .final-section .learn-more:hover {
         background: #FF6600;
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(255, 69, 0, 0.3);
@@ -1552,41 +1620,25 @@
             gap: 25px;
             margin-bottom: 50px;
         }
-
-        .final-section .text {
+        .final-section .video-container,
+        .final-section .text-column {
             width: 100%;
+            max-width: 100%;
+        }
+        .final-section .video-container {
+            aspect-ratio: 16 / 9;
+            min-width: 0;
+            max-width: 100%;
+            margin-bottom: 0;
+        }
+        .final-section .text {
             padding: 20px;
             text-align: left;
         }
-
-        .final-section .text h1 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .final-section .text h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .final-section .text p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .final-section .video-container {
+        .final-section .learn-more {
             width: 100%;
-            padding-top: 56.25%;
-            margin-bottom: 0;
-        }
-
-        .learn-more {
-            display: block;
             text-align: center;
-            padding: 12px 25px;
-            font-size: 1rem;
-            margin-top: 20px;
+            margin-top: 10px;
         }
     }
 
@@ -1595,15 +1647,12 @@
             padding: 15px;
             gap: 20px;
         }
-
         .final-section .text h1 {
             font-size: 1.8rem;
         }
-
         .final-section .text h3 {
             font-size: 1.2rem;
         }
-
         .final-section .text p {
             font-size: 0.95rem;
         }
