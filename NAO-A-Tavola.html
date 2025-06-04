@@ -43,75 +43,199 @@
         }
 
         /* Navbar styles */
-        .navbar {
-            position: fixed;
-            top: 10%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            width: 282px;
-            height: 84px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 42px;
-            box-shadow: 0 5.66px 11.31px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            animation: navbarFadeIn 1s ease-out forwards;
-        }
-
-        @keyframes navbarFadeIn {
-            to {
-                transform: translate(-50%, -50%) scale(1);
+        @keyframes navbarAppear {
+            0% {
+                transform: translateY(-100%) translateX(-50%);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-40%) translateX(-50%);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0) translateX(-50%);
+                opacity: 1;
             }
         }
 
-        .navbar img {
-            width: 56.57px;
-            height: 56.57px;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            position: relative;
+        @keyframes navItemAppear {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
-        .navbar img.middle {
-            width: 70.71px;
-            height: 70.71px;
-        }
-
-        .navbar img:hover {
-            transform: scale(1.2);
-        }
-
-        /* Hover rectangle styles */
-        .navbar a {
-            position: relative;
-        }
-
-        .navbar a .hover-rectangle {
-            position: absolute;
-            bottom: -40px;
+        .navbar {
+            position: fixed;
+            top: 20px;
             left: 50%;
-            transform: translateX(-50%) translateY(100%);
-            width: 100px;
-            padding: 5px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            text-align: center;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
-            color: #333;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 450px;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            padding: 0 10px;
+            animation: navbarAppear 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 40px;
+            padding: 1px;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0.1)
+            );
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
             pointer-events: none;
         }
 
-        .navbar a:hover .hover-rectangle {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+        .navbar img.favicon {
+            width: 55px;
+            height: 55px;
+            margin: 5px 5px 0 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            align-self: center;
+            animation: navItemAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+
+        .navbar .pill {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #FF4500, #d64b24);
+            border-radius: 40px;
+            padding: 12px 28px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 15px rgba(214, 75, 36, 0.2);
+            margin: 0 12px;
+            opacity: 0;
+            animation: navItemAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .navbar .pill:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .navbar .pill:nth-child(3) {
+            animation-delay: 0.7s;
+        }
+
+        .navbar .pill:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(214, 75, 36, 0.3);
+            background: linear-gradient(135deg, #FF5722, #FF4500);
+        }
+
+        .navbar img.favicon:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .navbar .pill img {
+            width: 35px;
+            height: 35px;
+            margin-right: 12px;
+            align-self: center;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .navbar .pill:hover img {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                width: calc(100% - 40px);
+                max-width: 300px;
+                height: 65px;
+                top: 15px;
+                padding: 0 8px;
+                background: rgba(0, 0, 0, 0.65);
+            }
+
+            .navbar img.favicon {
+                width: 42px;
+                height: 42px;
+                margin: 0 3px;
+            }
+
+            .navbar .pill {
+                padding: 8px 16px;
+                font-size: 0.95rem;
+                margin: 0 6px;
+            }
+
+            .navbar .pill img {
+                width: 28px;
+                height: 28px;
+                margin-right: 8px;
+            }
+
+            @supports not (backdrop-filter: blur(20px)) {
+                .navbar {
+                    background: rgba(0, 0, 0, 0.85);
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                width: calc(100% - 30px);
+                height: 60px;
+                top: 10px;
+                padding: 0 6px;
+            }
+
+            .navbar img.favicon {
+                width: 38px;
+                height: 38px;
+                margin: 0 2px;
+            }
+
+            .navbar .pill {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+                margin: 0 4px;
+                letter-spacing: 0;
+            }
+
+            .navbar .pill img {
+                width: 26px;
+                height: 26px;
+                margin-right: 6px;
+            }
         }
 
         /* Project hero section */
@@ -336,17 +460,16 @@
 
     <!-- Navbar Section -->
     <div class="navbar">
-        <a href="progetti.html">
-            <img src="iconesito/icon-progetti.png" alt="Logo 1">
-            <div class="hover-rectangle">Progetti</div>
-        </a>
         <a href="index.html">
-            <img src="iconesito/favicon.png" class="middle" alt="Logo 2">
-            <div class="hover-rectangle">Home</div>
+            <img src="iconesito/favicon.png" class="favicon" alt="Favicon">
         </a>
-        <a href="team.html">
-            <img src="iconesito/icon-team.png" alt="Logo 3">
-            <div class="hover-rectangle">Team</div>
+        <a href="progetti.html" class="pill">
+            <img src="iconesito/naoface.webp" alt="Progetti Icon">
+            <span>Progetti</span>
+        </a>
+        <a href="team.html" class="pill">
+            <img src="iconesito/icona-gruppo.webp" alt="Team Icon">
+            <span>Team</span>
         </a>
     </div>
 
