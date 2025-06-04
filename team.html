@@ -379,6 +379,73 @@
                 max-height: 60px;
             }
         }
+
+        /* Combined Section styles */
+        .combined-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #051e33;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .combined-section .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .combined-section .text {
+            max-width: 600px;
+            color: white;
+        }
+
+        .combined-section .text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e94b26;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .combined-section .text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+            text-align: justify;
+        }
+
+        .combined-section .image {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .combined-section {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .combined-section .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .combined-section .text {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .combined-section .image {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -496,6 +563,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Combined Section -->
+    <div class="combined-section">
+        <div class="content">
+            <div class="text">
+                <h2>Studenti e innovazione</h2>
+                <p>SuperNAO è un team di dieci studenti del Liceo Scientifico Azzarita, appassionati di tecnologia e innovazione. Sotto la guida del professor Ivano Coccorullo, ci siamo immersi nel mondo della robotica umanoide partecipando alla NAO Challenge. Abbiamo sviluppato competenze in vari ambiti, dalla programmazione alla creazione di contenuti, collaborando con marchi e università prestigiose. Ogni membro ha contribuito con creatività, trasformando un’idea in un progetto innovativo. L’esperienza nelle competizioni nazionali ci ha spinto a superare i nostri limiti. Ora ci chiediamo: come possiamo continuare a crescere e innovare?</p>
+            </div>
+            <img class="image" src="group1.webp" alt="Section 1 Image">
+        </div>
+        <div class="content">
+            <div class="text">
+                <h2>Con l'aiuto della Tecnologia</h2>
+                <p>La tecnologia è il cuore di SuperNAO. Utilizzando robot umanoidi, abbiamo esplorato applicazioni della robotica in contesti educativi e sociali, come musei e scuole. Le nostre esperienze ci hanno insegnato l’importanza di usare la tecnologia per promuovere valori educativi e sociali. Grazie alla collaborazione con università come La Sapienza e startup internazionali, abbiamo sviluppato un programma educativo sull’educazione alimentare, sfruttando l’intelligenza artificiale.</p>
+            </div>
+            <img class="image" src="group2.webp" alt="Section 2 Image">
+        </div>
+        <div class="content">
+            <div class="text">
+                <h2>Perchè proprio noi?</h2>
+                <p>La nostra forza in SuperNAO è la passione e la determinazione. Siamo un gruppo di studenti motivati, curiosi e pronti a affrontare ogni sfida con entusiasmo. La robotica umanoide ci ha insegnato che l’innovazione non riguarda solo la tecnologia, ma anche la collaborazione. Ogni successo ci spinge a esplorare nuove possibilità, convinti che il nostro impegno possa fare la differenza nelle comunità in cui operiamo. Questo ci motiva a cercare nuove opportunità e lasciare un segno positivo nel mondo.</p>
+            </div>
+            <img class="image" src="fotoannivari/naolook.webp" alt="Foto NAO">
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
