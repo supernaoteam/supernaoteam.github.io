@@ -16,7 +16,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: white;
+            background-color: #123257;
             }
         @media (max-width: 768px) {
             body {
@@ -42,7 +42,7 @@
             width: 100%;
             height: auto;
             overflow: hidden;
-            background: #d64b24;
+            background: #225477;
         }
         .hero video {
             width: 100%;
@@ -120,7 +120,7 @@
             flex-direction: column;
             gap: 40px;
             padding: 80px;
-            background: #d64b24;
+            background: #071a3d;
         }
         .combined-section .content {
             display: flex;
@@ -175,7 +175,7 @@
 }
 
         /* Team section styles */
-        .team-section {
+    .team-section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
@@ -183,7 +183,7 @@
 
 .section-title {
     text-align: center;
-    color: #d64b24;
+    color: #FF4500;
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 50px;
@@ -254,12 +254,12 @@
 .team-name {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: #0b1c31;
     margin-bottom: 5px;
 }
 
 .team-name .highlight {
-    color: #d64b24;
+    color: #e94b26;
 }
 
 .team-role {
@@ -1163,7 +1163,7 @@
 }
 
 .show-more-btn {
-    background: #d64b24;
+    background: #e94b26;
     color: white;
     border: none;
     padding: 15px 30px;
@@ -1263,34 +1263,7 @@
     </style>
 </head>
 <body>
-    <!-- Page Indicator -->
-    <div class="page-indicator">Benvenuto 🌸 SuperNAO</div>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <video id="hero-video" muted autoplay loop>
-            <source src="loop.mp4" type="video/mp4">
-        </video>
-        <div class="hero-text">
-            <h1>
-                <span style="color: #FF4500;">SUPER</span><span style="color: white;">NAO</span>
-            </h1>
-            <h2><span style="color: white;">La <span style="color: #FF4500;">Robotica</span> al servizio delle <span style="color: #FF4500;">Persone</span></span></h2>
-        </div>
-        <div class="hero-arrow" onclick="scrollToContent()">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-    </div>
-    <script>
-        function scrollToContent() {
-            const nextSection = document.querySelector('.combined-section'); // Target the next section
-            nextSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scrolling
-        }
-    </script>
-
-    <!-- Navbar -->
+        <!-- Navbar -->
     <div class="navbar">
         <a href="progetti.html">
             <img src="iconesito/icon-progetti.png" alt="Logo 1">
@@ -1305,8 +1278,140 @@
             <div class="hover-rectangle">Team</div>
         </a>
     </div>
+    <!-- Page Indicator -->
+    <div class="page-indicator">🌸🌸🌸🌸🌸🌸🌸🌸</div>
 
-    <!-- Combined Section -->
+    <!-- Hero Section -->
+    <div class="hero">
+        <video id="hero-video" muted autoplay loop>
+            <source src="loop.mp4" type="video/mp4">
+        </video>
+        <div class="hero-text">
+            <h1>
+                <span style="color: #FF4500;">SUPER</span><span style="color: white;">NAO</span>
+            </h1>
+            <h2><span style="color: white;">La <span style="color: #FF4500;">Robotica</span> al servizio delle <span style="color: #FF4500;">Persone</span>.</span></h2>
+        </div>
+        <div class="hero-arrow" onclick="scrollToContent()">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>
+    <script>
+        function scrollToContent() {
+            const nextSection = document.querySelector('.combined-section'); // Target the next section
+            nextSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scrolling
+        }
+    </script>
+
+
+
+    <!-- Final Section -->
+    <div class="final-section">
+        <div class="text">
+            <h1>Il nostro ultimo progetto</h1>
+            <h3>Dove la Robotica incontra lo Sport: SuperNAO Trainer</h3>
+            <p>Il nostro team ha lavorato duramente per sviluppare un sistema avanzato per trasformare il nostro umanoide, NAO, in un super-allenatore per potenziare, migliorare e diversificare l'attività sportiva. In questo video, vi mostriamo il nostro progetto per integrare la robotica umanoide all'interno del settore dello sport.</p>
+            <a href="progetti.html" class="learn-more">Scopri di più</a>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/ep9E2Q-0SEo" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="team-section">
+    <h2 class="section-title">Il Nostro <span style="color: #FF4500;">SUPER</span><span style="color: #f3f3f3;">-TEAM</span></h2>
+    <div class="team-grid">
+        <!-- Initial visible members -->
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Gabriele_V.webp" alt="Gabriele Delle Site">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Gabriele <span class="highlight">Delle Site</span></div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Filippo_Labate_V.webp" alt="Filippo Labate">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Filippo <span class="highlight">Labate</span></div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Ching_Hoi_V.webp" alt="Ching Hoi Wong">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Ching Hoi <span class="highlight">Wong</span></div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Niccolo_Lucidi_V.webp" alt="Niccolò Lucidi">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Niccolò <span class="highlight">Lucidi</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Separate container for hidden members -->
+    <div class="hidden-members">
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Virginia_D_Andrea_V.webp" alt="Virginia D'Andrea">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Virginia <span class="highlight">D'Andrea</span></div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Marco_Zorn_V.webp" alt="Marco Zorn">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Marco <span class="highlight">Zorn</span></div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/Leonardo_Vellella_V.webp" alt="Leonardo Vellella">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Leonardo <span class="highlight">Vellella</span></div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="photo-container">
+                <img src="/fototeamwebp/SuperNAO_V.webp" alt="SuperNAO">
+                <div class="photo-overlay"></div>
+            </div>
+            <div class="name-pill">
+                <div class="team-name">Super<span class="highlight">NAO</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="show-more-btn">Mostra Altri Membri</button>
+</div>
+<!-- Combined Section -->
     <div class="combined-section">
         <div class="content">
             <div class="text">
@@ -1331,118 +1436,7 @@
         </div>
     </div>
 
-    <!-- Team Section -->
-    <div class="team-section">
-    <h2 class="section-title">Il Nostro Team</h2>
-    <div class="team-grid">
-        <!-- Initial visible members -->
-        <div class="team-card">
-            <div class="photo-container">
-                <img src="/fototeamwebp/Gabriele_V.webp" alt="Gabriele Delle Site">
-                <div class="photo-overlay"></div>
-            </div>
-            <div class="name-pill">
-                <div class="team-name">Gabriele <span class="highlight">Delle Site</span></div>
-                <div class="team-role">Lead Developer</div>
-            </div>
-        </div>
-
-        <div class="team-card">
-            <div class="photo-container">
-                <img src="/fototeamwebp/Filippo_Labate_V.webp" alt="Filippo Labate">
-                <div class="photo-overlay"></div>
-            </div>
-            <div class="name-pill">
-                <div class="team-name">Filippo <span class="highlight">Labate</span></div>
-                <div class="team-role">Social Media Manager</div>
-            </div>
-        </div>
-
-        <div class="team-card">
-            <div class="photo-container">
-                <img src="/fototeamwebp/Ching_Hoi_V.webp" alt="Ching Hoi Wong">
-                <div class="photo-overlay"></div>
-            </div>
-            <div class="name-pill">
-                <div class="team-name">Ching Hoi <span class="highlight">Wong</span></div>
-                <div class="team-role">Content Creator</div>
-            </div>
-        </div>
-
-        <div class="team-card">
-            <div class="photo-container">
-                <img src="/fototeamwebp/Niccolo_Lucidi_V.webp" alt="Niccolò Lucidi">
-                <div class="photo-overlay"></div>
-            </div>
-            <div class="name-pill">
-                <div class="team-name">Niccolò <span class="highlight">Lucidi</span></div>
-                <div class="team-role">Grafico</div>
-            </div>
-        </div>
-    </div>
     
-    <!-- Separate container for hidden members -->
-    <div class="hidden-members">
-        <div class="team-card">
-            <div class="photo-container">
-                <img src="/fototeamwebp/Virginia_D_Andrea_V.webp" alt="Virginia D'Andrea">
-                <div class="photo-overlay"></div>
-            </div>
-            <div class="name-pill">
-                <div class="team-name">Virginia <span class="highlight">D'Andrea</span></div>
-                <div class="team-role">Designer</div>
-            </div>
-        </div>
-
-        <div class="team-card">
-            <div class="photo-container">
-                <img src="/fototeamwebp/Marco_Zorn_V.webp" alt="Marco Zorn">
-                <div class="photo-overlay"></div>
-            </div>
-            <div class="name-pill">
-                <div class="team-name">Marco <span class="highlight">Zorn</span></div>
-                <div class="team-role">Web Developer</div>
-            </div>
-        </div>
-
-        <div class="team-card">
-            <div class="photo-container">
-                <img src="/fototeamwebp/Leonardo_Vellella_V.webp" alt="Leonardo Vellella">
-                <div class="photo-overlay"></div>
-            </div>
-            <div class="name-pill">
-                <div class="team-name">Leonardo <span class="highlight">Vellella</span></div>
-                <div class="team-role">Developer</div>
-            </div>
-        </div>
-
-        <div class="team-card">
-            <div class="photo-container">
-                <img src="/fototeamwebp/SuperNAO_V.webp" alt="SuperNAO">
-                <div class="photo-overlay"></div>
-            </div>
-            <div class="name-pill">
-                <div class="team-name">Super<span class="highlight">NAO</span></div>
-                <div class="team-role">Assistente Robot</div>
-            </div>
-        </div>
-    </div>
-    
-    <button class="show-more-btn">Mostra Altri Membri</button>
-</div>
-
-    <!-- Final Section -->
-    <div class="final-section">
-        <div class="text">
-            <h1>Il nostro ultimo progetto</h1>
-            <h3>Dove la Robotica incontra lo Sport: SuperNAO Trainer</h3>
-            <p>Il nostro team ha lavorato duramente per sviluppare un sistema avanzato per trasformare il nostro umanoide, NAO, in un super-allenatore per potenziare, migliorare e diversificare l'attività sportiva. In questo video, vi mostriamo il nostro progetto per integrare la robotica umanoide all'interno del settore dello sport.</p>
-            <a href="progetti.html" class="learn-more">Scopri di più</a>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/ep9E2Q-0SEo" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
 
     <style>
     /* Final section improvements */
@@ -1453,7 +1447,7 @@
         padding: 60px;
         gap: 40px;
         margin-bottom: 100px;
-        background: linear-gradient(to right, var(--NAO) 5%, white 90%, var(--NAO) 5%);
+        background: #225477;
     }
 
     .final-section .text {
@@ -1660,7 +1654,7 @@
 
 .footer-section h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 4.5rem; /* Bigger text */
+    font-size: 2.5rem; /* Bigger text */
     color: #FF4500; /* Orange color for titles */
     margin-bottom: 20px;
 }
