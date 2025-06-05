@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperNAO - Home</title>
-    <link rel="icon" type="image/x-icon" href="iconesito/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="iconesito/favicon.webp" />
     <style>
         /* General styles */
         html, body {
@@ -446,7 +446,73 @@
             box-shadow: 0 6px 20px rgba(214, 75, 36, 0.3);
         }
 
-        /* Mobile styles */
+        /* Footer styles */
+        .footer {
+            background: rgb(1, 9, 28);
+            padding: 60px 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: #FF4500;
+            margin-bottom: 20px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .footer-social-links a img.social-icon {
+            width: 50px;
+            height: 50px;
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s ease;
+        }
+
+        .footer-social-links a img.social-icon:hover {
+            filter: invert(49%) sepia(81%) saturate(745%) hue-rotate(347deg) brightness(95%) contrast(102%);
+        }
+
+        .footer-social-links a .email-hover-icon {
+            display: none;
+        }
+
+        .footer-social-links a:hover .email-icon {
+            display: none;
+        }
+
+        .footer-social-links a:hover .email-hover-icon {
+            display: inline;
+        }
+
+        .sponsor-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .sponsor-logos img {
+            max-width: 200px;
+            max-height: 100px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
         @media (max-width: 768px) {
             body {
                 background: white;
@@ -553,6 +619,35 @@
             .team-section {
                 padding: 40px 20px;
             }
+
+            /* Footer */
+            .footer {
+                padding: 40px 15px;
+                text-align: center;
+            }
+
+            .footer-section h3 {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .footer-social-links {
+                gap: 30px;
+            }
+
+            .footer-social-links a img.social-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .sponsor-logos {
+                gap: 20px;
+            }
+
+            .sponsor-logos img {
+                max-width: 150px;
+                max-height: 80px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -589,6 +684,25 @@
                 height: 26px;
                 margin-right: 6px;
             }
+
+            /* Footer */
+            .footer-section h3 {
+                font-size: 2rem;
+            }
+
+            .footer-social-links {
+                gap: 20px;
+            }
+
+            .footer-social-links a img.social-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .sponsor-logos img {
+                max-width: 120px;
+                max-height: 60px;
+            }
         }
     </style>
 </head>
@@ -596,7 +710,7 @@
     <!-- Navbar -->
     <div class="navbar">
         <a href="index.html">
-            <img src="iconesito/favicon.png" class="favicon" alt="Favicon">
+            <img src="iconesito/favicon.webp" class="favicon" alt="Favicon">
         </a>
         <a href="progetti.html" class="pill">
             <img src="iconesito/naoface.webp" alt="Progetti Icon">
@@ -768,6 +882,43 @@
         
         <button class="show-more-btn">Mostra Altri Membri</button>
     </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <!-- Contatti Section -->
+            <div class="footer-section social">
+                <h3>CONTATTI</h3>
+                <div class="footer-social-links">
+                    <a href="https://instagram.com/supernaoteam" target="_blank" aria-label="Instagram">
+                        <img src="iconesito/instagram-svgrepo-com.svg" alt="Instagram" class="social-icon" />
+                    </a>
+                    <a href="https://linkedin.com/supernaoteam" target="_blank" aria-label="Linkedin">
+                        <img src="iconesito/linkedin-svgrepo-com.svg" alt="Linkedin" class="social-icon" />
+                    </a>
+                    <a href="https://youtube.com/supernaoteam" target="_blank" aria-label="YouTube">
+                        <img src="iconesito/youtube-color-svgrepo-com.svg" alt="YouTube" class="social-icon" />
+                    </a>
+                    <a href="mailto:contactsupernao@gmail.com" aria-label="Email">
+                        <img src="iconesito/email-svgrepo-com.svg" alt="Email" class="social-icon email-icon" />
+                        <img src="iconesito/email-open-svgrepo-com.svg" alt="Email Hover" class="social-icon email-hover-icon" />
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sponsors Section -->
+            <div class="footer-section sponsors">
+                <h3>CON IL SUPPORTO DI:</h3>
+                <div class="sponsor-logos">
+                    <img src="sponsor logo/Still 2025-06-02 174259_1.3.1.webp" alt="IIS SALVINI" />
+                    <img src="sponsor logo/nuvolari.svg" alt="NUVOLARI" />
+                    <img src="sponsor logo/Still 2025-06-02 175737_1.4.1 (1).webp" alt="HAPPY FAMILY" />
+                    <img src="sponsor logo/fairtilelogo.avif" alt="FAIRTILE" />
+                    <img src="sponsor logo/sapienza (1).webp" alt="Sapienza University" />
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         function scrollToContent() {
