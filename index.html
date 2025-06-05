@@ -439,6 +439,7 @@
             display: block;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 15px rgba(214, 75, 36, 0.2);
+            text-decoration: none;
         }
 
         .show-more-btn:hover {
@@ -514,13 +515,10 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                background: white;
-            }
-
             /* Hero Section */
             .hero {
                 height: 100vh;
+                position: relative;
             }
 
             .hero video {
@@ -529,17 +527,32 @@
                 object-position: 70% center;
             }
 
+            .hero-text {
+                padding: 40px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
             .hero-text h1 {
-                font-size: 5rem;
+                font-size: 4.5rem;
+                margin-bottom: 0.5rem;
+                text-shadow: 2px 2px 15px rgba(0,0,0,0.3);
             }
 
             .hero-text h2 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+                text-shadow: 1px 1px 10px rgba(0,0,0,0.3);
             }
 
             .hero-arrow {
                 bottom: 5%;
                 font-size: 1.8rem;
+                background: rgba(255,69,0,0.2);
+                backdrop-filter: blur(5px);
+                padding: 15px;
+                border-radius: 50%;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             }
 
             /* Navbar */
@@ -549,7 +562,9 @@
                 height: 65px;
                 top: 15px;
                 padding: 0 8px;
-                background: rgba(0, 0, 0, 0.65);
+                background: rgba(0, 0, 0, 0.75);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,69,0,0.2);
             }
 
             .navbar img.favicon {
@@ -559,37 +574,35 @@
             }
 
             .navbar .pill {
-                padding: 8px 16px;
+                padding: 10px 18px;
                 font-size: 0.95rem;
                 margin: 0 6px;
-            }
-
-            .navbar .pill img {
-                width: 28px;
-                height: 28px;
-                margin-right: 8px;
-            }
-
-            @supports not (backdrop-filter: blur(20px)) {
-                .navbar {
-                    background: rgba(0, 0, 0, 0.85);
-                }
+                background: linear-gradient(135deg, #FF4500, #d64b24);
+                box-shadow: 0 4px 15px rgba(255,69,0,0.2);
             }
 
             /* White Bar */
             .white-bar {
-                flex-wrap: wrap;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
                 padding: 40px 20px;
+                background: linear-gradient(to bottom, white, #f8f8f8);
             }
 
             .white-bar-item {
-                flex: 1 1 40%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 gap: 5px;
             }
 
             .orange-text {
                 font-size: 3.5rem;
+                background: linear-gradient(135deg, #FF4500, #d64b24);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
 
             .blue-text {
@@ -599,36 +612,42 @@
             /* Final Section */
             .final-section {
                 padding: 30px;
+                background: linear-gradient(135deg, #1a0031, #2b0d51);
             }
 
             .video-wrapper {
                 margin-bottom: 30px;
                 max-width: 100%;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             }
 
             .text-row {
                 flex-direction: column;
+                gap: 20px;
             }
 
             .final-section .text {
                 width: 100%;
                 max-width: none;
-            }
-
-            /* Team Section */
-            .team-section {
-                padding: 40px 20px;
+                background: rgba(255,255,255,0.05);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 15px;
+                padding: 25px;
             }
 
             /* Footer */
             .footer {
                 padding: 40px 15px;
-                text-align: center;
+                background: linear-gradient(to bottom, #01091c, #000510);
             }
 
             .footer-section h3 {
                 font-size: 2.5rem;
                 margin-bottom: 15px;
+                text-shadow: 2px 2px 10px rgba(255,69,0,0.3);
             }
 
             .footer-social-links {
@@ -638,15 +657,19 @@
             .footer-social-links a img.social-icon {
                 width: 40px;
                 height: 40px;
+                transition: transform 0.3s ease;
+            }
+
+            .footer-social-links a:hover img.social-icon {
+                transform: scale(1.2);
             }
 
             .sponsor-logos {
-                gap: 20px;
-            }
-
-            .sponsor-logos img {
-                max-width: 150px;
-                max-height: 80px;
+                gap: 25px;
+                padding: 20px;
+                background: rgba(255,255,255,0.03);
+                border-radius: 15px;
+                backdrop-filter: blur(5px);
             }
         }
 
@@ -673,16 +696,29 @@
             }
 
             .navbar .pill {
-                padding: 6px 12px;
+                padding: 8px 14px;
                 font-size: 0.9rem;
                 margin: 0 4px;
-                letter-spacing: 0;
             }
 
-            .navbar .pill img {
-                width: 26px;
-                height: 26px;
-                margin-right: 6px;
+            .white-bar {
+                padding: 30px 15px;
+            }
+
+            .orange-text {
+                font-size: 3rem;
+            }
+
+            .blue-text {
+                font-size: 1.3rem;
+            }
+
+            .final-section {
+                padding: 20px;
+            }
+
+            .final-section .text {
+                padding: 20px;
             }
 
             /* Footer */
@@ -699,9 +735,133 @@
                 height: 35px;
             }
 
+            .sponsor-logos {
+                gap: 20px;
+                padding: 15px;
+            }
+
             .sponsor-logos img {
                 max-width: 120px;
                 max-height: 60px;
+            }
+        }
+        /* Floating Icon */
+        .floating-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 140px; /* Doubled size */
+            height: 140px; /* Doubled size */
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .floating-icon:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add a stronger shadow */
+        }
+
+        .floating-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Dialog Box */
+        .dialog-box {
+            position: fixed;
+            bottom: 100px;
+            left: 180px; /* Positioned to the right of the larger icon */
+            transform: translateY(0);
+            width: 500px; /* Expanded horizontally */
+            max-width: 90%;
+            background-color: rgb(255, 94, 0);
+            color: black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px; /* Rounded corners for a speech bubble look */
+            padding: 20px;
+            display: none;
+            z-index: 1001;
+        }
+
+        .dialog-content {
+            position: relative;
+            text-align: left; /* Align text to the left */
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .dialog-content p {
+            margin: 0;
+            padding: 0;
+            color: rgb(255, 255, 255); /* Ensure text is readable */
+        }
+
+        /* Close Button */
+        .close-dialog {
+            position: relative; /* Position within the dialog content */
+            display: inline-block; /* Make it fit its content */
+            width: 30px; /* Set width for a square */
+            height: 30px; /* Set height for a square */
+            font-size: 1.2rem; /* Adjust font size */
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            border-radius: 50%; /* Make it circular */
+            background: rgba(255, 255, 255, 0.4); /* Background color */
+            text-align: center; /* Center the text */
+            line-height: 30px; /* Vertically center the "X" */
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .close-dialog:hover {
+            background: rgba(255, 255, 255, 0.6); /* Slightly brighter on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        @media (max-width: 768px) {
+            /* Floating Icon */
+            .floating-icon {
+                width: 100px; /* Smaller size for mobile */
+                height: 100px; /* Smaller size for mobile */
+                bottom: 15px; /* Adjust position */
+                left: 15px; /* Adjust position */
+            }
+
+            .floating-icon:hover {
+                transform: scale(1.05); /* Slightly smaller hover effect */
+            }
+
+            /* Dialog Box */
+            .dialog-box {
+                bottom: 130px; /* Adjust position above the smaller icon */
+                left: 15px; /* Align with the icon */
+                width: 90%; /* Use most of the screen width */
+                max-width: 400px; /* Limit the width */
+                padding: 15px; /* Reduce padding */
+                border-radius: 10px; /* Slightly smaller rounded corners */
+            }
+
+            .dialog-content {
+                font-size: 0.9rem; /* Slightly smaller font size */
+                line-height: 1.4; /* Adjust line height */
+                padding-right: 30px; /* Adjust padding for the close button */
+            }
+
+            .close-dialog {
+                bottom: 0px; /* Adjust position */
+                right: 0px; /* Adjust position */
+                font-size: 1rem; /* Slightly smaller close button */
+                padding: 4px; /* Adjust padding */
             }
         }
     </style>
@@ -882,6 +1042,17 @@
         
         <button class="show-more-btn go-to-team-btn">Mostra Altri Membri</button>
     </div>
+    
+    <!-- Circular Icon and Dialog -->
+    <div class="floating-icon">
+        <img src="NAO-icon.jpg" alt="Icon" onclick="toggleDialog()" />
+    </div>
+    <div class="dialog-box" id="dialog-box">
+        <div class="dialog-content">
+            <p>Ciao! Sono NAO, un robot umanoide con intelligenza artificiale, progettato per interagire e imparare. Il mio scopo è ispirare gli studenti e rendere l'apprendimento coinvolgente. Con capacità di riconoscimento vocale e di movimento, collaboro in modo naturale adattandomi alle esigenze di chi mi circonda. Ogni giorno esploro nuove sfide, contribuendo a creare un futuro dove tecnologia e umanità migliorano la vita delle persone. Insieme, possiamo trasformare idee in realtà con curiosità e creatività!</p>
+            <span class="close-dialog" onclick="toggleDialog()">×</span> <!-- Positioned after the text -->
+        </div>
+    </div>
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -893,10 +1064,10 @@
                     <a href="https://instagram.com/supernaoteam" target="_blank" aria-label="Instagram">
                         <img src="iconesito/instagram-svgrepo-com.svg" alt="Instagram" class="social-icon" />
                     </a>
-                    <a href="https://linkedin.com/supernaoteam" target="_blank" aria-label="Linkedin">
+                    <a href="https://www.linkedin.com/company/supernao/" target="_blank" aria-label="Linkedin">
                         <img src="iconesito/linkedin-svgrepo-com.svg" alt="Linkedin" class="social-icon" />
                     </a>
-                    <a href="https://youtube.com/supernaoteam" target="_blank" aria-label="YouTube">
+                    <a href="https://www.youtube.com/@supernaoteam" target="_blank" aria-label="YouTube">
                         <img src="iconesito/youtube-color-svgrepo-com.svg" alt="YouTube" class="social-icon" />
                     </a>
                     <a href="mailto:contactsupernao@gmail.com" aria-label="Email">
@@ -915,12 +1086,21 @@
                     <img src="sponsor logo/Still 2025-06-02 175737_1.4.1 (1).webp" alt="HAPPY FAMILY" />
                     <img src="sponsor logo/fairtilelogo.avif" alt="FAIRTILE" />
                     <img src="sponsor logo/sapienza (1).webp" alt="Sapienza University" />
+                    <img src="sponsor logo/Yoga.jpeg" alt="YOGA" />
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
+        function toggleDialog() {
+        const dialogBox = document.getElementById('dialog-box');
+        if (dialogBox.style.display === 'none' || dialogBox.style.display === '') {
+            dialogBox.style.display = 'block';
+        } else {
+            dialogBox.style.display = 'none';
+        }
+    }
         function scrollToContent() {
             const nextSection = document.querySelector('.white-bar');
             nextSection.scrollIntoView({ behavior: 'smooth' });
