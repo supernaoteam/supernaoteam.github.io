@@ -880,7 +880,7 @@
             </div>
         </div>
         
-        <button class="show-more-btn">Mostra Altri Membri</button>
+        <button class="show-more-btn go-to-team-btn">Mostra Altri Membri</button>
     </div>
 
     <!-- Footer Section -->
@@ -926,18 +926,27 @@
             nextSection.scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Fix for showing more team members
         document.querySelector('.show-more-btn').addEventListener('click', function() {
             const hiddenMembers = document.querySelector('.hidden-members');
             const button = this;
-
             if (hiddenMembers.style.display === 'none' || hiddenMembers.style.display === '') {
                 hiddenMembers.style.display = 'grid';
-                hiddenMembers.style.gridTemplateColumns = 'repeat(auto-fit, minmax(260px, 1fr))';
-                hiddenMembers.style.gap = '30px';
-                button.textContent = 'Mostra Meno';
+                button.textContent = 'Nascondi Membri';
             } else {
                 hiddenMembers.style.display = 'none';
                 button.textContent = 'Mostra Altri Membri';
+            }
+        });
+
+        // Make the "Mostra Altri Membri" button work both as a toggle and a link to team page
+        document.querySelector('.go-to-team-btn').addEventListener('click', function() {
+            const hiddenMembers = document.querySelector('.hidden-members');
+            if (hiddenMembers.style.display === 'grid') {
+                window.location.href = 'team.html';
+            } else {
+                hiddenMembers.style.display = 'grid';
+                this.textContent = 'Vedi Tutto il Team';
             }
         });
     </script>
