@@ -1,198 +1,536 @@
-/* Team Page Specific Styles */
-.team-page {
-    background: #051e33;
-    padding: 100px 50px 50px;
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #01345a;
     min-height: 100vh;
+    color: #333;
 }
 
-.team-title {
+h1 {
     text-align: center;
     color: #FF4500;
-    font-size: 4rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
     margin-bottom: 50px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.team-page .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
+/* Projects Container */
+.projects-container {
+    max-width: 1200px;
+    margin: 120px auto 40px;
     padding: 20px;
 }
 
-.team-page .team-card {
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 20px;
+}
+
+.project-card {
+    background: rgb(255, 255, 255);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.226);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    flex-shrink: 0;
+}
+
+.project-content {
+    padding: 20px;
+    position: relative;
+    flex-grow: 1;
+    padding-bottom: 50px;
+}
+
+.project-title {
+    color: #FF4500;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FF4500;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.project-link:hover {
+    background-color: #FF6600;
+}
+
+/* First project card spans full width on desktop */
+.project-grid .project-card:first-child {
+    grid-column: span 3;
+}
+
+.project-grid .project-card:not(:first-child) {
+    grid-column: span 1;
+}
+
+/* Hero Section Styles */
+.hero-section {
     position: relative;
     width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    background: #ffffff;
-    border-radius: 20px;
+    height: 80vh;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    text-align: center;
+}
+
+.hero-title h1 {
+    font-size: 4rem;
+    margin: 0;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Team Section */
+.team-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    padding-top: 40px;
+    background-color: #051e33;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.team-header-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section-title {
+    text-align: center;
+    color: #e94b26;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.team-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: white;
+    padding: 0 20px;
+}
+
+.team-description strong {
+    color: #e94b26;
+    font-weight: 600;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    width: 100%;
+}
+
+.team-card {
+    position: relative;
+    width: 260px;
+    margin-bottom: 20px;
+}
+
+.photo-container {
+    background: #f0f0f0;
+    border-radius: 20px;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.589), 0 15px 35px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.team-page .team-card:hover {
+.team-card:hover .photo-container {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2), 0 20px 45px rgba(0, 0, 0, 0.15);
 }
 
-.team-page .photo-container {
-    width: 100%;
-    height: 320px;
-    position: relative;
-    overflow: hidden;
-}
-
-.team-page .photo-container img {
+.photo-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.team-page .team-card:hover .photo-container img {
+.team-card:hover .photo-container img {
     transform: scale(1.05);
 }
 
-.team-page .member-info {
-    padding: 25px;
-    background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+.name-pill {
+    background: white;
+    border-radius: 20px;
+    padding: 15px 25px;
+    text-align: center;
+    box-shadow: 2 2px 8px rgb(0, 0, 0);
+    position: relative;
+    z-index: 0;
+    margin-top: -10px;
+    margin-left: 0;
+    margin-right: 0;
+    transition: transform 0.3s ease;
 }
 
-.team-page .member-name {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: bold;
+.team-card:hover .name-pill {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-.team-page .member-name .highlight {
-    color: #FF4500;
-}
-
-.team-page .member-role {
+.team-name {
     font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 15px;
+    font-weight: 700;
+    color: #0b1c31;
+    margin-bottom: 5px;
 }
 
-.team-page .member-description {
-    color: #444;
-    font-size: 1rem;
-    line-height: 1.6;
+.team-name .highlight {
+    color: #e94b26;
+}
+
+.team-role {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+.footer {
+    background: rgb(1, 9, 28);
+    padding: 60px 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.footer-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #FF4500;
     margin-bottom: 20px;
 }
 
-.team-page .social-links {
+.footer-social-links {
     display: flex;
-    gap: 15px;
+    justify-content: center;
+    gap: 50px;
 }
 
-.team-page .social-link {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #f0f0f0;
+.footer-social-links a img.social-icon {
+    width: 50px;
+    height: 50px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.footer-social-links a img.social-icon:hover {
+    filter: invert(49%) sepia(81%) saturate(745%) hue-rotate(347deg) brightness(95%) contrast(102%);
+}
+
+.footer-social-links a .email-hover-icon {
+    display: none;
+}
+
+.footer-social-links a:hover .email-icon {
+    display: none;
+}
+
+.footer-social-links a:hover .email-hover-icon {
+    display: inline;
+}
+
+.sponsor-logos {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sponsor-logos img {
+    max-width: 200px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Combined Section */
+.combined-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.combined-section .content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    justify-content: space-between;
+    margin-bottom: 40px;
 }
 
-.team-page .social-link:hover {
-    transform: translateY(-2px);
-    background: #e0e0e0;
+.combined-section .text {
+    max-width: 600px;
+    color: white;
 }
 
-.team-page .social-link img {
-    width: 20px;
-    height: 20px;
-    filter: brightness(0) saturate(100%);
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+.combined-section .text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #e94b26;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.team-page .social-link:hover img {
-    opacity: 1;
+.combined-section .text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: justify;
 }
 
-/* Team Page Responsive Design */
+.combined-section .image {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Responsive Design */
+
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    .team-page {
-        padding: 80px 20px 30px;
-    }
-
-    .team-title {
-        font-size: 3rem;
-        margin-bottom: 40px;
-    }
-
-    .team-page .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
+    /* Projects */
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
         padding: 10px;
     }
 
-    .team-page .team-card {
-        max-width: 280px;
+    .projects-container {
+        margin-top: 120px;
+        padding: 15px;
     }
 
-    .team-page .photo-container {
-        height: 280px;
+    .project-card {
+        max-width: 100%;
     }
 
-    .team-page .member-info {
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    .project-content {
+        padding: 15px;
+    }
+
+    .project-title {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+    }
+
+    .project-link {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        font-size: 1rem;
+        position: static;
+        margin-top: 15px;
+    }
+
+    .project-grid .project-card:first-child {
+        grid-column: span 1;
+    }
+
+    /* Team */
+    .team-card {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .photo-container {
+        height: 300px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 40px 15px;
+    }
+
+    .footer-section h3 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .footer-social-links {
+        gap: 30px;
+    }
+
+    .footer-social-links a img.social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .sponsor-logos {
+        gap: 20px;
+    }
+
+    .sponsor-logos img {
+        max-width: 150px;
+        max-height: 80px;
+    }
+
+    /* Combined Section */
+    .combined-section {
         padding: 20px;
     }
 
-    .team-page .member-name {
-        font-size: 1.6rem;
+    .combined-section .content {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .team-page .member-role {
-        font-size: 1.1rem;
+    .combined-section .text {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .combined-section .image {
+        max-width: 100%;
     }
 }
 
 @media (max-width: 480px) {
-    .team-page {
-        padding: 70px 15px 20px;
+    /* Projects */
+    .projects-container {
+        margin-top: 100px;
+        padding: 10px;
     }
 
-    .team-title {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
+    .project-card {
+        border-radius: 15px;
     }
 
-    .team-page .team-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
+    .project-image {
+        height: 160px;
     }
 
-    .team-page .team-card {
-        max-width: 100%;
+    .project-content {
+        padding: 12px;
     }
 
-    .team-page .photo-container {
-        height: 260px;
+    .project-title {
+        font-size: 1.2rem;
     }
 
-    .team-page .member-info {
-        padding: 15px;
+    .project-description {
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
 
-    .team-page .member-name {
-        font-size: 1.4rem;
+    /* Footer */
+    .footer-section h3 {
+        font-size: 2rem;
     }
 
-    .team-page .member-role {
-        font-size: 1rem;
+    .footer-social-links {
+        gap: 20px;
     }
 
-    .team-page .member-description {
-        font-size: 0.95rem;
+    .footer-social-links a img.social-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .sponsor-logos img {
+        max-width: 120px;
+        max-height: 60px;
     }
 }
