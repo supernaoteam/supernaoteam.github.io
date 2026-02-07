@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperNAO - Progetti</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/progetti.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/gs.css" />
     <link rel="icon" type="image/x-icon" href="iconesito/favicon.webp" />
     <style>
-
-
         /* General styles */
         body {
             font-family: 'Poppins', sans-serif;
@@ -213,129 +214,6 @@
             .navbar img.middle {
                 width: 50px;
                 height: 50px;
-            }
-        }
-
-        /* Footer styles */
-        .footer {
-            background: rgb(1, 9, 28); /* Dark blue background */
-            padding: 60px 20px;
-            color: #fff;
-            text-align: center;
-        }
-
-        .footer-inner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .footer-section {
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem; /* Bigger text */
-            color: #FF4500; /* Orange color for titles */
-            margin-bottom: 20px;
-        }
-
-        .footer-social-links {
-            display: flex;
-            justify-content: center;
-            gap: 50px; /* More horizontal space on desktop */
-        }
-
-        .footer-social-links a img.social-icon {
-            width: 50px;
-            height: 50px;
-            filter: brightness(0) invert(1); /* Make icons white */
-            transition: filter 0.3s ease;
-        }
-
-        .footer-social-links a img.social-icon:hover {
-              filter: invert(49%) sepia(81%) saturate(745%) hue-rotate(347deg) brightness(95%) contrast(102%);
-        }
-
-        .footer-social-links a .email-hover-icon {
-            display: none; /* Default hidden */
-        }
-
-        .footer-social-links a:hover .email-icon {
-            display: none; /* Hide default icon on hover */
-        }
-
-        .footer-social-links a:hover .email-hover-icon {
-            display: inline; /* Show hover icon */
-        }
-
-        .sponsor-logos {
-            display: flex;
-            justify-content: center;
-            gap: 40px; /* Proper spacing between logos */
-            align-items: center; /* Align logos on the same horizontal line */
-            flex-wrap: wrap; /* Wrap logos if necessary */
-        }
-
-        .sponsor-logos img {
-            max-width: 200px; /* Adjust logo size */
-            max-height: 100px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            box-shadow: none; /* Remove shadow */
-            transition: none; /* Remove hover effects */
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 40px 15px; /* Reduce padding */
-                text-align: center;
-            }
-
-            .footer-section h3 {
-                font-size: 2.5rem; /* Smaller text for titles */
-                margin-bottom: 15px; /* Reduce spacing */
-            }
-
-            .footer-social-links {
-                gap: 30px; /* Reduce horizontal space between icons */
-            }
-
-            .footer-social-links a img.social-icon {
-                width: 40px; /* Smaller icons */
-                height: 40px;
-            }
-
-            .sponsor-logos {
-                gap: 20px; /* Reduce spacing between logos */
-            }
-
-            .sponsor-logos img {
-                max-width: 150px; /* Smaller logo size */
-                max-height: 80px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .footer-section h3 {
-                font-size: 2rem; /* Further reduce title size */
-            }
-
-            .footer-social-links {
-                gap: 20px; /* Further reduce spacing */
-            }
-
-            .footer-social-links a img.social-icon {
-                width: 35px; /* Smaller icons for very small screens */
-                height: 35px;
-            }
-
-            .sponsor-logos img {
-                max-width: 120px; /* Further reduce logo size */
-                max-height: 60px;
             }
         }
     </style>

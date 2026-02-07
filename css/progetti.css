@@ -1,0 +1,427 @@
+/* White Bar Section */
+.white-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    padding: 70px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+.white-bar-item {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.orange-text {
+    color: #FF4500;
+    font-size: 5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.blue-text {
+    color: #01345a;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* Final section styles */
+.final-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+    gap: 40px;
+    margin-bottom: 100px;
+    background: #1a0031;
+}
+
+.video-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 40px;
+    aspect-ratio: 16/9;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.text-columns {
+    width: 100%;
+    max-width: 1400px;
+}
+
+.text-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.final-section .text {
+    flex: 1;
+    max-width: 300px;
+    padding: 30px;
+    background: #2b0d51;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.final-section .text:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.final-section h1 {
+    color: #FF4500;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.final-section h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.final-section p {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Team section styles */
+.team-section {
+    width: 100vw;
+    margin: 0 auto;
+    padding-top: 25px; 
+    background-color: #011627;
+}
+
+.section-title {
+    text-align: center;
+    color: #FF4500;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    width: 100%;
+}
+
+.team-card {
+    position: relative;
+    width: 260px;
+    margin-bottom: 20px;
+}
+
+.photo-container {
+    background: #f0f0f0;
+    border-radius: 20px;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.589), 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover .photo-container {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2), 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .photo-container img {
+    transform: scale(1.05);
+}
+
+.name-pill {
+    background: white;
+    border-radius: 20px;
+    padding: 35px 40px 20px;
+    text-align: center;
+    box-shadow: 2 2px 8px rgb(0, 0, 0);
+    position: relative;
+    z-index: 1;
+    margin-top: -10px;
+    margin-left: 0;
+    margin-right: 0;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .name-pill {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.team-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0b1c31;
+    margin-bottom: 5px;
+}
+
+.team-name .highlight {
+    color: #e94b26;
+}
+
+/* Hidden members section */
+.hidden-members {
+    display: none;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    margin-top: 30px;
+}
+
+/* Show more button */
+.show-more-btn {
+    background: #e94b26;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 40px auto 0;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(214, 75, 36, 0.2);
+    text-decoration: none;
+}
+
+.show-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(214, 75, 36, 0.3);
+}
+
+/* Projects Page Styles */
+/* Project Cards Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 100px 50px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.project-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.project-content {
+    padding: 25px;
+    background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    color: #FF4500;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.project-description {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.project-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #FF4500, #d64b24);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    align-self: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(214, 75, 36, 0.2);
+}
+
+.project-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(214, 75, 36, 0.3);
+}
+
+/* Responsive Design for Projects Page */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 80px 20px 30px;
+        gap: 20px;
+    }
+
+    .project-image {
+        height: 250px;
+    }
+
+    .project-content {
+        padding: 20px;
+    }
+
+    .project-title {
+        font-size: 1.8rem;
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+
+    .project-link {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        padding: 70px 15px 20px;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    .project-content {
+        padding: 15px;
+    }
+
+    .project-title {
+        font-size: 1.6rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .project-link {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+     @media (max-width: 768px) {
+            .navbar {
+                width: calc(100% - 40px);
+                max-width: 300px;
+                height: 65px;
+                top: 15px;
+                padding: 0 8px;
+                background: rgba(0, 0, 0, 0.65);
+            }
+
+            .navbar img.favicon {
+                width: 42px;
+                height: 42px;
+                margin: 0 3px;
+            }
+
+            .navbar .pill {
+                padding: 8px 16px;
+                font-size: 0.95rem;
+                margin: 0 6px;
+            }
+
+            .navbar .pill img {
+                width: 28px;
+                height: 28px;
+                margin-right: 8px;
+            }
+
+            @supports not (backdrop-filter: blur(20px)) {
+                .navbar {
+                    background: rgba(0, 0, 0, 0.85);
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                width: calc(100% - 30px);
+                height: 60px;
+                top: 10px;
+                padding: 0 6px;
+            }
+
+            .navbar img.favicon {
+                width: 38px;
+                height: 38px;
+                margin: 0 2px;
+            }
+
+            .navbar .pill {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+                margin: 0 4px;
+                letter-spacing: 0;
+            }
+
+            .navbar .pill img {
+                width: 26px;
+                height: 26px;
+                margin-right: 6px;
+            }
+        }
+}

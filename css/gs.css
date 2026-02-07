@@ -1,0 +1,31 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #1a0031;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #FF4500;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
