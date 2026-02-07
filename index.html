@@ -5,11 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperNAO - Home</title>
     <link rel="icon" type="image/x-icon" href="iconesito/favicon.webp" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/gs.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        @media screen and (max-width: 768px) {
+            .white-bar {
+                flex-direction: warp;
+                padding: 20px 0;
+            }
+            
+            .orange-text{
+                font-size:2rem;
+            }
+            .blue-text{
+                font-size:1rem;
+            }
+
+            .white-bar-item {
+                margin: 10px 0;
+            }
+            
+            .text-columns .text-row {
+                flex-direction: column;
+            }
+            
+            .text-columns .text {
+                width: 90%;
+                margin: 20px auto;
+            }
+            
+            .team-grid, .hidden-members {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-section {
+                width: 100%;
+                margin: 20px 0;
+            }
+            
+            .sponsor-logos {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .sponsor-logos img {
+                max-width: 120px;
+                margin: 10px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.2em;
+            }
+            
+            .floating-icon {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .dialog-box {
+                width:80%;
+                height: auto;
+                left: 5%;
+                z-index:1;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            .team-grid, .hidden-members {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+            }
+            
+            .text-columns .text-row {
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            .text-columns .text {
+                width: 30%;
+            }
+        }
+
+
+    </style>
+</head>
 <body>
     <!-- Navbar -->
     <div class="navbar">

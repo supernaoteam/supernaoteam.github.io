@@ -4,11 +4,341 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperNAO - Progetti</title>
-    <link rel="stylesheet" href="css/progetti.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/gs.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" type="image/x-icon" href="iconesito/favicon.webp" />
+    <style>
+
+
+        /* General styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #01345a;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FF4500;
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 50px;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 20px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Default single column */
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: rgb(255, 255, 255);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.226);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: flex; /* Add flex properties */
+            flex-direction: column;
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+            flex-shrink: 0; /* Prevents image from shrinking */
+        }
+
+        .project-content {
+            padding: 20px;
+            position: relative;
+            flex-grow: 1; /* Make content area take up remaining vertical space */
+            padding-bottom: 50px; /* Increased padding at the bottom */
+        }
+
+        .project-title {
+            color: #FF4500;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px; /* Space between description and button area */
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FF4500;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            bottom: 10px; /* Position 10px from the bottom edge */
+            right: 10px; /* Position 10px from the right edge */
+        }
+
+        .project-link:hover {
+            background-color: #FF6600;
+        }
+
+        /* First project card styling */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Default single column */
+            gap: 30px;
+        }
+
+        .project-grid .project-card:first-child {
+            grid-column: span 3; /* Span across all columns */
+        }
+
+        .project-grid .project-card:not(:first-child) {
+            grid-column: span 1; /* Each card takes one column */
+        }
+
+        @media (min-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(3, 1fr); /* Three columns for smaller cards */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 25px;
+                padding: 10px;
+            }
+
+            .projects-container {
+                margin-top: 120px;
+                padding: 15px;
+            }
+
+            .project-card {
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .project-image {
+                height: 180px;
+            }
+
+            .project-content {
+                padding: 15px; /* Original mobile padding */
+            }
+
+            .project-title {
+                font-size: 1.3rem;
+                margin-bottom: 8px;
+            }
+
+            .project-description {
+                font-size: 0.95rem;
+                margin-bottom: 15px;
+            }
+
+            .project-link {
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+                font-size: 1rem;
+                position: static; /* Make it part of the flow */
+                margin-top: 15px; /* Add space above the full-width button */
+            }
+
+
+            /* Ensure first card doesn't span multiple columns on mobile */
+            .project-grid .project-card:first-child {
+                grid-column: span 1;
+            }
+        }
+
+        /* Additional breakpoint for very small devices */
+        @media (max-width: 350px) {
+            .projects-container {
+                margin-top: 100px;
+                padding: 10px;
+            }
+
+            .project-card {
+                border-radius: 15px;
+            }
+
+            .project-image {
+                height: 160px;
+            }
+
+            .project-content {
+                padding: 12px;
+            }
+
+            .project-title {
+                font-size: 1.2rem;
+            }
+
+            .project-description {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .navbar {
+                width: 200px;
+                height: 60px;
+            }
+
+            .navbar img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .navbar img.middle {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* Footer styles */
+        .footer {
+            background: rgb(1, 9, 28); /* Dark blue background */
+            padding: 60px 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .footer-section {
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem; /* Bigger text */
+            color: #FF4500; /* Orange color for titles */
+            margin-bottom: 20px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 50px; /* More horizontal space on desktop */
+        }
+
+        .footer-social-links a img.social-icon {
+            width: 50px;
+            height: 50px;
+            filter: brightness(0) invert(1); /* Make icons white */
+            transition: filter 0.3s ease;
+        }
+
+        .footer-social-links a img.social-icon:hover {
+              filter: invert(49%) sepia(81%) saturate(745%) hue-rotate(347deg) brightness(95%) contrast(102%);
+        }
+
+        .footer-social-links a .email-hover-icon {
+            display: none; /* Default hidden */
+        }
+
+        .footer-social-links a:hover .email-icon {
+            display: none; /* Hide default icon on hover */
+        }
+
+        .footer-social-links a:hover .email-hover-icon {
+            display: inline; /* Show hover icon */
+        }
+
+        .sponsor-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Proper spacing between logos */
+            align-items: center; /* Align logos on the same horizontal line */
+            flex-wrap: wrap; /* Wrap logos if necessary */
+        }
+
+        .sponsor-logos img {
+            max-width: 200px; /* Adjust logo size */
+            max-height: 100px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            box-shadow: none; /* Remove shadow */
+            transition: none; /* Remove hover effects */
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 40px 15px; /* Reduce padding */
+                text-align: center;
+            }
+
+            .footer-section h3 {
+                font-size: 2.5rem; /* Smaller text for titles */
+                margin-bottom: 15px; /* Reduce spacing */
+            }
+
+            .footer-social-links {
+                gap: 30px; /* Reduce horizontal space between icons */
+            }
+
+            .footer-social-links a img.social-icon {
+                width: 40px; /* Smaller icons */
+                height: 40px;
+            }
+
+            .sponsor-logos {
+                gap: 20px; /* Reduce spacing between logos */
+            }
+
+            .sponsor-logos img {
+                max-width: 150px; /* Smaller logo size */
+                max-height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-section h3 {
+                font-size: 2rem; /* Further reduce title size */
+            }
+
+            .footer-social-links {
+                gap: 20px; /* Further reduce spacing */
+            }
+
+            .footer-social-links a img.social-icon {
+                width: 35px; /* Smaller icons for very small screens */
+                height: 35px;
+            }
+
+            .sponsor-logos img {
+                max-width: 120px; /* Further reduce logo size */
+                max-height: 60px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar Section -->
@@ -28,7 +358,7 @@
 
     <!-- Projects Section -->
     <div class="projects-container">
-        <h1 class="insp">I NOSTRI SUPER-PROGETTI</h1>
+        <h1>I NOSTRI SUPER-PROGETTI</h1>
         <div class="project-grid">
             
             <!-- Project Card 1 -->
